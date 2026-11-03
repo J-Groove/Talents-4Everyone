@@ -8,9 +8,11 @@ order listed beside the window). The gear guide is left out for now. Rules share
 Lua 5.1, layout, TOC, CurseForge releases, the website) are in `..\CLAUDE.md`; this file holds only what is true for
 Talents4e.
 
-Stage: building, no repo yet. Export, the main window, import and the talent order work on Retail (owner, 2026-11-02);
-the talent planner, the Settings page and the minimap button work in tests, not yet tried in game. The plan is `docs\design.md`; work in
-progress is `docs\status.md`.
+Stage: 0.1.0 uploaded to CurseForge by hand, waiting for approval (2026-11-02); repo J-Groove/Talents-4Everyone
+(public). The windows, import, export, the planner, Settings and the minimap button work on Retail and Anniversary;
+the talent order on the talent window waits for Forever itself. Releases after 0.1.0 go by tag through
+`.github\workflows\release.yml` (`docs\curseforge.md`). The plan is `docs\design.md`; work in progress is
+`docs\status.md`.
 
 ## Ground rules
 - Git: the owner commits and pushes. Never run commit, push, merge, rebase or history rewrites, and never add a
@@ -60,7 +62,7 @@ In TOC load order:
   run it again if the monogram changes. The game reads TGA or BLP, not PNG or SVG.
 - `Talents4e.lua`: `/t4e` and `/talents4e` (toggle the main window) and `ADDON_LOADED`, which sets up `Talents4eDB`, the
   Settings page and the minimap button.
-- `tools\make-data.mjs`, `tools\make-icon.mjs`, `tools\package.ps1` (builds the CurseForge zip by hand into `.release\`), `tests\`:
+- `.github\workflows\release.yml` (the BigWigs packager on version tags), `tools\make-data.mjs`, `tools\make-icon.mjs`, `tools\package.ps1` (builds the CurseForge zip by hand into `.release\`), `tests\`:
   development only, left out of the CurseForge zip. Publishing steps: `docs\curseforge.md`.
 
 ## Saved data

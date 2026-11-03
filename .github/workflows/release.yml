@@ -1,0 +1,26 @@
+# Builds the CurseForge zip and uploads it when a version tag is pushed (git tag -a v0.2.0 -m "..." then
+# git push --tags). The BigWigs packager reads .pkgmeta (what to leave out, the changelog) and the TOC: Interface
+# 16001 files it under Forever, X-Curse-Project-ID says which project. It also makes a GitHub release with the zip.
+# Needs the repository secret CF_API_KEY (a CurseForge API token); without it, only the GitHub release is made.
+# Steps: docs\curseforge.md, "After the first release".
+name: Package and release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    env:
+      CF_API_KEY: ${{ secrets.CF_API_KEY }}
+      GITHUB_OAUTH: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: BigWigsMods/packager@v2

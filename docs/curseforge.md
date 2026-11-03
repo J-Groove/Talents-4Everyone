@@ -61,16 +61,38 @@ On the project's Files tab, choose Upload File:
 ## 5. After it's approved
 - Copy the **Project ID** from the project page's About box into the TOC, under `## Author:`:
   `## X-Curse-Project-ID: 123456`. That lets the CurseForge app match installed copies to the project.
+- Commit and push it, then tag 0.1.0 (an annotated tag, which the packager wants):
+  `git tag -a v0.1.0 -m "Talents-4Everyone 0.1.0"` and `git push --tags`. The release workflow runs and makes a
+  GitHub release with the zip. With no CurseForge token saved yet it skips CurseForge, which is right: 0.1.0 is
+  already there by hand. Add the token (below) only after this tag.
 - Record what the first release taught (the exact game version label, how long approval took) in
   `..\CLAUDE.md`, "Releasing on CurseForge".
 - Add the CurseForge address to the website's `docs\addons.md` (the website chat owns that file; leave it a
   note in `wow-4e\docs\status.md`).
 
-## After the first release
-Once the repo is on GitHub, the BigWigs packager (`..\CLAUDE.md`, "Releasing on CurseForge") builds and uploads
-the zip from a version tag such as `v0.2.0`, using `.pkgmeta` and the matching section of `CHANGELOG.md`. It needs
-a CurseForge API token, kept as a GitHub secret (never in a file). The `X-Curse-Project-ID` line tells it where to
-upload.
+## After the first release: automatic uploads
+`.github\workflows\release.yml` runs the BigWigs packager whenever a tag starting with `v` is pushed. It builds the
+zip by `.pkgmeta` (the same files as `tools\package.ps1`), files it under Forever because the TOC's Interface is
+16001 (the packager knows `16xxx` as Forever), uploads it to the project named by `X-Curse-Project-ID` with
+`CHANGELOG.md` as the notes, and makes a GitHub release with the same zip.
+
+Switching it on, once, after the v0.1.0 tag above:
+1. Make a CurseForge API token: on [authors.curseforge.com](https://authors.curseforge.com) look for **API
+   Tokens** under your account (older guides point to `legacy.curseforge.com/account/api-tokens`). Name it, say,
+   "GitHub Talents4e", and copy it; it is shown once.
+2. On GitHub, the repo's **Settings > Secrets and variables > Actions > New repository secret**: name `CF_API_KEY`,
+   value the token. Never put the token in a file.
+3. Same repo, **Settings > Actions > General > Workflow permissions**: Read and write permissions (the release step
+   needs them).
+
+Each release after that:
+1. Raise `## Version:` in `Talents4e.toc`, and add a `## <version>` section at the top of `CHANGELOG.md`.
+2. Commit and push.
+3. `git tag -a v0.2.0 -m "Talents-4Everyone 0.2.0"` and `git push --tags`.
+4. Watch the repo's **Actions** tab; the file appears on CurseForge a few minutes later. A plain tag such as
+   `v0.2.0` uploads as Release; `v0.2.0-beta1` as Beta and `v0.2.0-alpha1` as Alpha.
+
+The notes CurseForge shows are the whole `CHANGELOG.md`, newest first.
 
 ---
 

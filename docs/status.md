@@ -14,19 +14,17 @@ what is happening now. Keep it short.
 <!-- One line per chat: area · files/folders · since (date) · what is left. -->
 
 ## Waiting on someone
-- Owner, in game (Retail works for all of this except Forever's own talents): `/reload`, then
-  - **Planner:** main window > New plan. Do the three trees draw with icons, ranks and prerequisite bars? Left-click
-    adds a point, right-click takes the last off, a locked talent says why under the trees. Start from my talents,
-    Place the rest, Clear, Save (then Edit it and Save again: it asks to save over), Copy link (paste it in a
-    browser). The X and Cancel ask before dropping changes. On Retail the trees are a Forever class's, drawn from
-    `Data.lua`, so the icons and names are right but don't match Retail's talents.
-  - **Settings:** Options > AddOns > Talents-4Everyone, or the Settings link in the main window's footer. Four check
-    boxes, Reminder position (Reset) and Open Talents-4Everyone. Turning the minimap button off hides it at once.
-  - **Minimap button:** shows the 4E disc inside the round border; click, right-click, drag it round the edge; it
-    stays put after `/reload`. The 4E also shows beside Talents-4Everyone in the AddOns list.
-  - Any Lua error, and whether `UICheckButtonTemplate`, `InsetFrameTemplate` and `NumberFontNormal` look right.
-- Owner: `git init` and a GitHub repo when you are happy with it.
+- Owner: commit and push (TOC now has `X-Curse-Project-ID: 1781085`, plus the release workflow), then
+  `git tag -a v0.1.0 -m "Talents-4Everyone 0.1.0"` and `git push --tags`; only then the CF_API_KEY secret
+  (`docs\curseforge.md`, "After the first release").
+- Data.lua is behind the site: the site moved to game data 70753 (Paladin loses a talent, so its positions shift;
+  some Druid requirements change). 3 tests fail until `node tools/make-data.mjs` is run; that belongs in 0.1.1, after
+  the v0.1.0 tag, so the tag matches the uploaded file.
+- Forever's launch: the talent window checks (badges, glow, order list, reminder, export's talents), screenshots 1
+  to 3 in `docs\curseforge.md`, and the Beta file switched to Release.
 - Owner: confirm the two calls in `design.md`, "Decisions" (planner limits, our own minimap button).
+- Done in game (Retail and Anniversary, 2026-11-02): main window, import, export box, planner, Settings, minimap
+  button. GitHub repo J-Groove/Talents-4Everyone pushed.
 
 ## Next up
 - Owner: review screens 2 and 4 to 7 in Figma. Redraw screens 4, 6 and 7 over real screenshots now that they exist.
@@ -34,6 +32,10 @@ what is happening now. Keep it short.
 - The order list's talent window checks on Forever itself once it is out (`/fstack` names, taint, the Apply step).
 
 ## Done lately (newest first)
+- 2026-11-03 · Approved on CurseForge: https://www.curseforge.com/wow/addons/talents-4everyone, project 1781085,
+  0.1.0 Beta under Forever 1.60.1. Project ID added to the TOC; the daily approval check turned off; the website chat told.
+- 2026-11-02 · Release workflow: `.github\workflows\release.yml` (BigWigs packager on `v*` tags; Forever from
+  Interface 16001). Switch-on steps in `docs\curseforge.md`; needs the CF_API_KEY secret after the v0.1.0 tag. Not run yet.
 - 2026-11-02 · Renamed Talents-4Everyone (owner): code name Talents4e, folder `addons	alents4e`, `Talents4e.toc`,
   `Talents4e.lua`, `Talents4eDB`, `/t4e` and `/talents4e`, frame and popup names. Retail and Anniversary relinked as
   `Talents4e`; Retail's saved builds copied to `Talents4e.lua` (the old `Build4e.lua` left in place). Screenshots to retake.

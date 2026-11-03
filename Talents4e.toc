@@ -2,6 +2,7 @@
 ## Title: Talents-4Everyone
 ## Notes: Export your character to the wow-4e.com Build Calculator, and follow a build while you level.
 ## Author: JGroove Studios
+## X-Curse-Project-ID: 1781085
 ## Version: 0.1.0
 ## SavedVariables: Talents4eDB
 ## IconTexture: Interface\AddOns\Talents4e\Media\Icon
