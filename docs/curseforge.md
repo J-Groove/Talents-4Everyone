@@ -71,7 +71,8 @@ On the project's Files tab, choose Upload File:
   note in `wow-4e\docs\status.md`).
 
 ## After the first release: automatic uploads
-`.github\workflows\release.yml` runs the BigWigs packager whenever a tag starting with `v` is pushed. It builds the
+`.github\workflows\release.yml` runs the BigWigs packager whenever a tag starting with `v` is pushed. The tag is the version CurseForge shows:
+tag `v0.2.0` uploads as "Talents-4Everyone v0.2.0" (the workflow's `-n` sets that name). It builds the
 zip by `.pkgmeta` (the same files as `tools\package.ps1`), files it under Forever because the TOC's Interface is
 16001 (the packager knows `16xxx` as Forever), uploads it to the project named by `X-Curse-Project-ID` with
 `CHANGELOG.md` as the notes, and makes a GitHub release with the same zip.

@@ -14,10 +14,8 @@ what is happening now. Keep it short.
 <!-- One line per chat: area · files/folders · since (date) · what is left. -->
 
 ## Waiting on someone
-- Owner: release 0.1.1 (ready, uncommitted): save the CF_API_KEY secret and set Actions to Read and write if not
-  done yet, commit, push, then `git tag -a v0.1.1 -m "Talents-4Everyone 0.1.1"` and `git push --tags`. Check on
-  CurseForge that it lands under Forever 1.60.1 (the packager's first upload). Without the secret, upload
-  `.release\Talents4e-0.1.1.zip` by hand instead.
+- Owner: on CurseForge, rename the 0.1.1 file (Files > the file > Edit) from "v0.1.1-forever" to
+  "Talents-4Everyone v0.1.1"; commit and push the workflow fix. Next release: tag `v0.1.2`.
 - Forever's launch: the talent window checks (badges, glow, order list, reminder, export's talents), screenshots 1
   to 3 in `docs\curseforge.md`, and the Beta file switched to Release.
 - Owner: confirm the two calls in `design.md`, "Decisions" (planner limits, our own minimap button).
@@ -30,6 +28,9 @@ what is happening now. Keep it short.
 - The order list's talent window checks on Forever itself once it is out (`/fstack` names, taint, the Apply step).
 
 ## Done lately (newest first)
+- 2026-11-03 · 0.1.1 released by the packager (first automatic upload; CurseForge filed it under Forever 1.60.1 as
+  Release, named "v0.1.1-forever" by the packager's default). The workflow now names files "Talents-4Everyone
+  <tag>", e.g. "Talents-4Everyone v0.1.2".
 - 2026-11-03 · 0.1.1 prepared: `Data.lua` rebuilt for game build 1.60.1.70753 (the site's data; Paladin loses
   One-Handed Weapon Specialization, some Druid requirements change), with the site's layout fingerprints
   (`Data.layouts`). `Builds.GameVersionAge`: import calls a code old only when its class (or Legacy) layout moved,
