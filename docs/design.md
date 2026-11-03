@@ -106,7 +106,7 @@ short: `/t4e` or a minimap button opens the main window (saved builds with Impor
 window gets level numbers on its talents and the order list beside it; level-ups show a small reminder.
 
 ## Game API and events
-Forever runs on the modern client (interface 120100 alongside 16001; its project id is `WOW_PROJECT_CAMELOT`,
+Forever runs on the modern client (interface 16001; 120100 is Retail 12.1.0, not Forever; its project id is `WOW_PROJECT_CAMELOT`,
 which addons expect to be renamed). What the export uses, found 2026-11-01 from the site's data and from addons
 installed in `_forever_` (Questie, EnhanceQoL), **not yet confirmed in game** (Check talents in the main window does that):
 - Talents are trait trees. The site's talent `id` is the `TraitNode` id, and a tree's talents are in row-then-column

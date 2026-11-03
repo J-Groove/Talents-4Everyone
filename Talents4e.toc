@@ -1,7 +1,7 @@
-## Interface: 16001, 120100, 120105, 20506
+## Interface: 16001
 ## Title: Talents-4Everyone
 ## Notes: Export your character to the wow-4e.com Build Calculator, and follow a build while you level.
-## Author: Jeffrey Gruver
+## Author: JGroove Studios
 ## Version: 0.1.0
 ## SavedVariables: Talents4eDB
 ## IconTexture: Interface\AddOns\Talents4e\Media\Icon

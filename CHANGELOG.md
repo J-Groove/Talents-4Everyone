@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0 (unreleased)
+## 0.1.0
 - Main window, opened with `/t4e` or `/talents4e`: your saved builds, with buttons for everything else.
 - Import: paste a wow-4e.com build link or code, see what it holds, name it and save it (up to 20). Warns when the
   build is for another class, made for an older game version, or has no talent order.

@@ -101,10 +101,10 @@ and `Data.lua` against the site's game data. `Character.lua` is tested
 against stubbed game APIs. wasmoon loses its globals after a few dozen `doString` calls on one engine: tests get a
 fresh engine each and batch many calls with `evaluateAll`. The owner checks it in game.
 
-Outside Forever: the TOC's 120105 also loads it on Retail 12.1.5 (installed in `_retail_`). There the slash
+Outside Forever: the TOC lists only Forever's 16001 (owner, 2026-11-02). Adding 120105 locally loads it on Retail 12.1.5 (installed in `_retail_`). There the slash
 command, the windows, gear and Check talents' list of the game's own talent trees can be tried; Forever's talents
 and Legacy perks can't (Retail has other node ids, other classes and no Legacy system), and a level above 60 is
-written as 60 with a note. Its 20506 loads it on Classic Anniversary 2.5.6 (`_anniversary_`, linked 2026-11-02),
+written as 60 with a note. Adding 20506 loads it on Classic Anniversary 2.5.6 (`_anniversary_`, linked 2026-11-02),
 only for the owner's screenshots: the windows, the planner and Settings work there, but that client has the old
 talent API (`GetTalentInfo`, `PlayerTalentFrame`), not `C_ClassTalents`, so export reads no talents and the order
-never reaches its talent window. The addon supports Forever only; no code for other clients (owner, 2026-11-02). Both test numbers come out of the TOC before a release (`docs\curseforge.md`).
+never reaches its talent window. The addon supports Forever only; no code for other clients (owner, 2026-11-02). Never commit or upload those numbers (`docs\curseforge.md`).

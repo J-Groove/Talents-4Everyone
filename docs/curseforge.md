@@ -7,18 +7,18 @@ automated (see "After the first release"). Written 2026-11-02; nothing here has 
 - Forever is its own game flavor on CurseForge, beside Retail and the Classic flavors. Forever Talents, a similar
   addon, files its releases under **Forever**, game version **1.60.1**, in the categories Class, Quests & Leveling
   and Miscellaneous (seen 2026-11-02).
-- The CurseForge app decides which game a file is for from the TOC's `## Interface:` numbers. Talents4e's TOC lists
-  `16001, 120100, 120105`. 16001 and 120100 are Forever's (the same line as Vend4e). **120105 is Retail 12.1.5, there
-  only so you can test on Retail.** Leave it in and the app may offer Talents4e to Retail players, where Forever's
-  talents don't exist. Take `120105` out of `Talents4e.toc` before you build the zip, and put it back when you want
-  to test on Retail again. The same goes for `20506` (Classic Anniversary 2.5.6, there only for screenshots).
+- The CurseForge app decides which game a file is for from the TOC's `## Interface:` numbers. Forever's number is
+  **16001** (1.60.1), and Talents4e's TOC lists only that (owner, 2026-11-02), as do the Forever-only addons in
+  `_forever_` (EnhanceQoL's `_Camelot` TOCs, ForeverQuestTint). Any other number offers it to another game:
+  `120100` and `120105` are Retail 12.1.0 and 12.1.5, `11509` Classic Era, `20506` Classic Anniversary, `50504`
+  Mists. To try it on another client, add that number locally and never commit or upload it.
 
 ## 1. Before uploading
 - [ ] Tried in game with no Lua errors on a fresh character: the main window, import, follow, the talent order,
       the planner, Settings and the minimap button. Forever itself if you can, otherwise Retail.
 - [ ] `## Version:` in `Talents4e.toc` matches the top heading of `CHANGELOG.md` (both `0.1.0`), and that heading
       no longer says "(unreleased)".
-- [ ] `120105` and `20506` taken out of the TOC's `## Interface:` line (above).
+- [x] The TOC's `## Interface:` line is `16001` only (above).
 - [ ] `README.md` is current: it's in the zip, and its "Using it" section is a good source for the description.
 
 ## 2. Build the zip
