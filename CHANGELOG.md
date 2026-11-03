@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1
+- Talent data updated to game build 1.60.1.70753, the same as wow-4e.com: Paladin loses One-Handed Weapon
+  Specialization, so Paladin builds made on the site now import with every talent in the right place, and a few
+  Druid talent requirements in the planner match the game again.
+- Import warns about an old game version only when that class's talents really moved since (as the site does), so
+  most builds made before this update import without a warning.
+- Import warns when a build was made for a newer game version than the addon knows: update the addon.
+
 ## 0.1.0
 - Main window, opened with `/t4e` or `/talents4e`: your saved builds, with buttons for everything else.
 - Import: paste a wow-4e.com build link or code, see what it holds, name it and save it (up to 20). Warns when the

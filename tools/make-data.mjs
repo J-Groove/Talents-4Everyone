@@ -55,6 +55,14 @@ for (const tree of legacy.trees) {
   const early = tree.perks.flatMap((p, i) => (p.earlyTalentLevels ? [`[${i + 1}] = ${p.earlyTalentLevels}`] : []));
   lines.push(`    { id = ${tree.id}, nodes = ${nodes(tree.perks)}, early = { ${early.join(', ')} } }, -- ${tree.name}`);
 }
+// The site's layout fingerprints per game build (classes.json "layouts"), by class id plus "legacy": a code from an
+// older build whose class (or Legacy) layout differs from today's is old, the same rule as the site's
+// fromOldGameVersion.
+lines.push('  },', '  layouts = {');
+for (const [build, prints] of Object.entries(classes.layouts ?? {})) {
+  const byId = classes.classes.map((c) => `[${c.id}] = "${prints[c.slug] ?? ''}"`);
+  lines.push(`    [${build}] = { ${byId.join(', ')}, legacy = "${prints.legacy ?? ''}" },`);
+}
 lines.push('  },', '}', '');
 
 writeFileSync(join(here, '..', 'Data.lua'), lines.join('\n'));

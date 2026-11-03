@@ -5,9 +5,9 @@
 local _, ns = ...
 
 ns.Data = {
-  build = "1.60.1.70707",
+  build = "1.60.1.70753",
   classes = {
-    [1] = { name = "Warrior", icon = "classicon_warrior", -- talents from 1.60.1.70707
+    [1] = { name = "Warrior", icon = "classicon_warrior", -- talents from 1.60.1.70753
       { id = 161, name = "Arms", icon = "ability_rogue_eviscerate", nodes = { 105958, 105957, 105956, 105955, 105954, 105952, 105951, 105950, 105949, 105948, 105947, 110524, 105945, 105944, 110858, 105942, 105941 },
         talents = {
           { name = "Improved Heroic Strike", icon = "ability_rogue_ambush", ranks = 3, spell = 12282, row = 1, col = 1 },
@@ -73,7 +73,7 @@ ns.Data = {
         },
       },
     },
-    [2] = { name = "Paladin", icon = "classicon_paladin", -- talents from 1.60.1.70707
+    [2] = { name = "Paladin", icon = "classicon_paladin", -- talents from 1.60.1.70753
       { id = 382, name = "Holy", icon = "spell_holy_holybolt", nodes = { 105335, 113630, 105333, 110871, 105334, 105327, 105325, 105329, 105704, 105324, 110873, 105330, 110872, 105323, 113631, 105321, 105320 },
         talents = {
           { name = "Spiritual Focus", icon = "spell_arcane_blink", ranks = 5, spell = 20205, row = 1, col = 2 },
@@ -85,7 +85,7 @@ ns.Data = {
           { name = "Divine Favor", icon = "spell_holy_heal", ranks = 1, spell = 20216, row = 3, col = 1 },
           { name = "Illumination", icon = "spell_holy_greaterheal", ranks = 5, spell = 20210, row = 3, col = 2, req = { index = 4, rank = 2 } },
           { name = "Holy Conduit", icon = "spell_holy_devineaegis", ranks = 2, spell = 1237268, row = 3, col = 3 },
-          { name = "Divine Precision", icon = "spell_holy_mindsooth", ranks = 2, spell = 1310904, row = 4, col = 1, req = { index = 14, rank = 1 } },
+          { name = "Divine Precision", icon = "spell_holy_mindsooth", ranks = 2, spell = 1310904, row = 4, col = 1 },
           { name = "Infusion of Light", icon = "ability_paladin_infusionoflight", ranks = 2, spell = 426065, row = 4, col = 2 },
           { name = "Oath of Light", icon = "spell_holy_greaterblessingoflight", ranks = 1, spell = 1328548, row = 4, col = 3 },
           { name = "Consecrated Ground", icon = "spell_holy_innerfire", ranks = 2, spell = 1310905, row = 5, col = 1 },
@@ -95,7 +95,7 @@ ns.Data = {
           { name = "Light's Vigil", icon = "ability_paladin_judgementofthepure", ranks = 1, spell = 1310911, row = 7, col = 2, req = { index = 14, rank = 1 } },
         },
       },
-      { id = 383, name = "Protection", icon = "spell_holy_devotionaura", nodes = { 105332, 105626, 105638, 105637, 105632, 105625, 105633, 110874, 105630, 110878, 105629, 105634, 105636, 105639, 105628, 105627, 110879, 110875 },
+      { id = 383, name = "Protection", icon = "spell_holy_devotionaura", nodes = { 105332, 105626, 105638, 105637, 105632, 105625, 105633, 110874, 105630, 110878, 105634, 105636, 105639, 105628, 105627, 110879, 110875 },
         talents = {
           { name = "Divine Intellect", icon = "spell_nature_sleep", ranks = 5, spell = 20257, row = 1, col = 2 },
           { name = "Redoubt", icon = "ability_defend", ranks = 5, spell = 20127, row = 1, col = 3 },
@@ -107,17 +107,16 @@ ns.Data = {
           { name = "Shield Specialization", icon = "inv_shield_06", ranks = 2, spell = 20150, row = 3, col = 3, req = { index = 2, rank = 5 } },
           { name = "Toughness", icon = "spell_holy_devotion", ranks = 5, spell = 20143, row = 3, col = 4 },
           { name = "Swift Judgement", icon = "ability_paladin_judgementred", ranks = 1, spell = 1310994, row = 4, col = 1, req = { index = 6, rank = 1 } },
-          { name = "One-Handed Weapon Specialization", icon = "inv_sword_20", ranks = 3, spell = 20196, row = 4, col = 2 },
           { name = "Improved Righteous Fury", icon = "spell_holy_sealoffury", ranks = 3, spell = 20468, row = 4, col = 2 },
           { name = "Anticipation", icon = "spell_magic_lesserinvisibilty", ranks = 5, spell = 20096, row = 4, col = 3 },
           { name = "Stoicism", icon = "spell_holy_stoicism", ranks = 2, spell = 1328546, row = 5, col = 1 },
-          { name = "Holy Shield", icon = "spell_holy_blessingofprotection", ranks = 1, spell = 20925, row = 5, col = 2, req = { index = 6, rank = 1 } },
+          { name = "Holy Shield", icon = "spell_holy_blessingofprotection", ranks = 1, spell = 20925, row = 5, col = 2 },
           { name = "Reckoning", icon = "spell_holy_blessingofstrength", ranks = 5, spell = 20177, row = 5, col = 3 },
           { name = "Iron Creed", icon = "spell_holy_improvedresistanceauras", ranks = 3, spell = 1311034, row = 6, col = 3 },
-          { name = "Shieldsworn", icon = "spell_holy_greaterblessingofsanctuary", ranks = 1, spell = 1328544, row = 7, col = 2, req = { index = 15, rank = 1 } },
+          { name = "Shieldsworn", icon = "spell_holy_greaterblessingofsanctuary", ranks = 1, spell = 1328544, row = 7, col = 2, req = { index = 14, rank = 1 } },
         },
       },
-      { id = 381, name = "Retribution", icon = "spell_holy_auraoflight", nodes = { 105707, 105706, 105705, 105703, 105701, 105702, 105331, 105696, 105699, 105698, 105700, 105697, 113629, 105694, 105693, 110880, 110882, 105692 },
+      { id = 381, name = "Retribution", icon = "spell_holy_auraoflight", nodes = { 105707, 105706, 105705, 105703, 105701, 105702, 105331, 105696, 105699, 105698, 105700, 105697, 113629, 105694, 105693, 110882, 105692 },
         talents = {
           { name = "Deflection", icon = "ability_parry", ranks = 5, spell = 20060, row = 1, col = 2 },
           { name = "Benediction", icon = "spell_frost_windwalkon", ranks = 5, spell = 20101, row = 1, col = 3 },
@@ -134,13 +133,12 @@ ns.Data = {
           { name = "Turn Evil", icon = "spell_holy_turnundead", ranks = 2, spell = 1328370, row = 5, col = 1 },
           { name = "Repentance", icon = "spell_holy_prayerofhealing", ranks = 1, spell = 20066, row = 5, col = 2 },
           { name = "Vengeance", icon = "ability_racial_avatar", ranks = 3, spell = 20049, row = 5, col = 3, req = { index = 8, rank = 1 } },
-          { name = "Instrument of Law", icon = "spell_holy_divinepurpose", ranks = 2, spell = 1311085, row = 6, col = 3 },
           { name = "Champion of the Light", icon = "ability_paladin_enlightenedjudgements", ranks = 5, spell = 1311084, row = 6, col = 3 },
           { name = "Unsealed Wrath", icon = "spell_holy_blessedresillience", ranks = 1, spell = 1310735, row = 7, col = 2, req = { index = 14, rank = 1 } },
         },
       },
     },
-    [3] = { name = "Hunter", icon = "classicon_hunter", -- talents from 1.60.1.70707
+    [3] = { name = "Hunter", icon = "classicon_hunter", -- talents from 1.60.1.70753
       { id = 361, name = "Beast Mastery", icon = "ability_hunter_beasttaming", nodes = { 104960, 104976, 104975, 104974, 104972, 104973, 104970, 104969, 104968, 104967, 104966, 104965, 104964, 104963, 104962, 104961 },
         talents = {
           { name = "Deadly Aspects", icon = "spell_nature_ravenform", ranks = 5, spell = 19552, row = 1, col = 2 },
@@ -204,7 +202,7 @@ ns.Data = {
         },
       },
     },
-    [4] = { name = "Rogue", icon = "classicon_rogue", -- talents from 1.60.1.70707
+    [4] = { name = "Rogue", icon = "classicon_rogue", -- talents from 1.60.1.70753
       { id = 182, name = "Assassination", icon = "ability_rogue_eviscerate", nodes = { 105742, 105723, 105722, 105721, 105720, 105739, 105759, 105717, 105716, 105714, 105715, 105713, 105718, 105709, 105711, 105710, 105712 },
         talents = {
           { name = "Improved Gouge", icon = "ability_gouge", ranks = 3, spell = 13741, row = 1, col = 1 },
@@ -271,7 +269,7 @@ ns.Data = {
         },
       },
     },
-    [5] = { name = "Priest", icon = "classicon_priest", -- talents from 1.60.1.70707
+    [5] = { name = "Priest", icon = "classicon_priest", -- talents from 1.60.1.70753
       { id = 201, name = "Discipline", icon = "spell_holy_wordfortitude", nodes = { 110853, 105850, 105849, 105848, 110852, 105837, 105845, 105842, 105844, 105846, 105843, 105841, 105838, 105839, 105834, 105835, 105840, 105836 },
         talents = {
           { name = "Power in Light", icon = "spell_holy_searinglight", ranks = 5, spell = 1309969, row = 1, col = 1 },
@@ -337,7 +335,7 @@ ns.Data = {
         },
       },
     },
-    [7] = { name = "Shaman", icon = "classicon_shaman", -- talents from 1.60.1.70707
+    [7] = { name = "Shaman", icon = "classicon_shaman", -- talents from 1.60.1.70753
       { id = 261, name = "Elemental", icon = "spell_nature_lightning", nodes = { 104773, 104772, 104769, 104767, 104771, 104770, 104768, 104765, 104764, 104763, 104762, 104761, 104760, 104759, 104766, 104758 },
         talents = {
           { name = "Convection", icon = "spell_nature_wispsplode", ranks = 5, spell = 16039, row = 1, col = 2 },
@@ -401,7 +399,7 @@ ns.Data = {
         },
       },
     },
-    [8] = { name = "Mage", icon = "classicon_mage", -- talents from 1.60.1.70707
+    [8] = { name = "Mage", icon = "classicon_mage", -- talents from 1.60.1.70753
       { id = 81, name = "Arcane", icon = "spell_holy_magicalsentry", nodes = { 105815, 105813, 105802, 105812, 105811, 105810, 105809, 105808, 105807, 105806, 105805, 105804, 105803, 113627, 105801, 105800, 105799, 105798 },
         talents = {
           { name = "Wand Specialization", icon = "inv_wand_01", ranks = 2, spell = 6057, row = 1, col = 1 },
@@ -468,7 +466,7 @@ ns.Data = {
         },
       },
     },
-    [9] = { name = "Warlock", icon = "classicon_warlock", -- talents from 1.60.1.70707
+    [9] = { name = "Warlock", icon = "classicon_warlock", -- talents from 1.60.1.70753
       { id = 302, name = "Affliction", icon = "spell_shadow_deathcoil", nodes = { 105921, 105925, 105924, 105923, 105922, 105920, 105919, 105918, 105916, 105917, 110876, 105914, 105913, 105912, 105911, 105910, 105909 },
         talents = {
           { name = "Improved Life Tap", icon = "spell_shadow_burningspirit", ranks = 2, spell = 18182, row = 1, col = 1 },
@@ -534,7 +532,7 @@ ns.Data = {
         },
       },
     },
-    [11] = { name = "Druid", icon = "classicon_druid", -- talents from 1.60.1.70707
+    [11] = { name = "Druid", icon = "classicon_druid", -- talents from 1.60.1.70753
       { id = 283, name = "Balance", icon = "spell_nature_starfall", nodes = { 104923, 104924, 104925, 104931, 104927, 104929, 104926, 104928, 104930, 104932, 104933, 110844, 104934, 104935, 104936, 104937 },
         talents = {
           { name = "Improved Wrath", icon = "spell_nature_abolishmagic", ranks = 5, spell = 16814, row = 1, col = 2 },
@@ -569,7 +567,7 @@ ns.Data = {
           { name = "Sharpened Claws", icon = "inv_misc_monsterclaw_04", ranks = 2, spell = 16942, row = 3, col = 4 },
           { name = "Predatory Strikes", icon = "ability_hunter_pet_cat", ranks = 3, spell = 16972, row = 4, col = 1 },
           { name = "Lacerate", icon = "ability_druid_lacerate", ranks = 1, spell = 1328617, row = 4, col = 2, req = { index = 8, rank = 2 } },
-          { name = "Predatory Discipline", icon = "spell_druid_savagery", ranks = 1, spell = 1328613, row = 4, col = 3, req = { index = 7, rank = 3 } },
+          { name = "Predatory Discipline", icon = "spell_druid_savagery", ranks = 1, spell = 1328613, row = 4, col = 3 },
           { name = "Blood Frenzy", icon = "ability_ghoulfrenzy", ranks = 2, spell = 16958, row = 4, col = 4, req = { index = 10, rank = 2 } },
           { name = "Leader of the Pack", icon = "spell_nature_unyeildingstamina", ranks = 1, spell = 17007, row = 5, col = 2 },
           { name = "Natural Instinct", icon = "ability_druid_predatoryinstincts", ranks = 2, spell = 1223242, row = 5, col = 4 },
@@ -613,9 +611,15 @@ ns.Data = {
     [8] = "Troll",
     [96] = "Windshaper Skyborne",
   },
-  legacy = { -- from 1.60.1.70707
+  legacy = { -- from 1.60.1.70753
     { id = 1188, nodes = { 110305, 110301, 110298, 113511, 113510, 110296, 110304, 110300, 110303 }, early = { [3] = 1 } }, -- Adventure
     { id = 1189, nodes = { 110319, 110313, 110316, 113513, 113512, 110315, 110309, 110318, 110314 }, early = {  } }, -- Resourcefulness
     { id = 1187, nodes = { 110289, 110290, 110286, 110284, 110291, 110292, 113508, 113506, 110293 }, early = {  } }, -- Professions
+  },
+  layouts = {
+    [70532] = { [1] = "da3727551872", [2] = "c99d3142ace3", [3] = "73ea6e2e507e", [4] = "24f00654ece2", [5] = "82d846c2608f", [7] = "a58dea5acaf4", [8] = "8737586ea1e5", [9] = "f30a52c0a380", [11] = "c5c511114b2c", legacy = "702336267782" },
+    [70630] = { [1] = "da3727551872", [2] = "c99d3142ace3", [3] = "73ea6e2e507e", [4] = "24f00654ece2", [5] = "82d846c2608f", [7] = "a58dea5acaf4", [8] = "a916c6bd205c", [9] = "f30a52c0a380", [11] = "c5c511114b2c", legacy = "702336267782" },
+    [70707] = { [1] = "da3727551872", [2] = "e03b7c75fa5a", [3] = "36010caa2e08", [4] = "24f00654ece2", [5] = "82d846c2608f", [7] = "a58dea5acaf4", [8] = "a99bfc665acb", [9] = "f30a52c0a380", [11] = "328374710f4d", legacy = "702336267782" },
+    [70753] = { [1] = "da3727551872", [2] = "6413e9b7ed4a", [3] = "36010caa2e08", [4] = "24f00654ece2", [5] = "82d846c2608f", [7] = "a58dea5acaf4", [8] = "a99bfc665acb", [9] = "f30a52c0a380", [11] = "328374710f4d", legacy = "702336267782" },
   },
 }

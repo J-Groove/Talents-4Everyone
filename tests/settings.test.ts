@@ -41,7 +41,7 @@ it('adds the Settings page and the minimap button, and applies a setting at once
   ]);
   expect(out).toEqual([
     'Talents-4Everyone', '4', 'Level numbers on talents', 'true', 'Reset', 'Open Talents-4Everyone',
-    'v0.1.0 · data 1.60.1.70707', 'true', 'false', 'false', 'false', 'false', 'true', 'true', '77',
+    'v0.1.0 · data 1.60.1.70753', 'true', 'false', 'false', 'false', 'false', 'true', 'true', '77',
   ]);
 });
 

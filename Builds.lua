@@ -78,6 +78,31 @@ function Builds.Detail(build, playerClassId)
   return table.concat(parts, " · ")
 end
 
+-- Whether a build's talent positions may not match Data.lua: "older" when it was made on an older game build whose
+-- layout differs where it spends points (its class's trees, or the Legacy trees), as the site's
+-- fromOldGameVersion decides; "newer" when its game build is newer than the data and not one the data knows;
+-- nil otherwise. Codes with no game build (0) can't be told and count as current.
+local function spends(trees)
+  for _, tree in ipairs(trees or {}) do
+    for _, rank in pairs(tree) do
+      if rank > 0 then return true end
+    end
+  end
+  return false
+end
+
+function Builds.GameVersionAge(build)
+  local current = Core.GameBuildNumber(Data.build)
+  local made = build.gameBuild or 0
+  if made == 0 or made == current then return nil end
+  local layouts = Data.layouts or {}
+  local thenPrints, nowPrints = layouts[made], layouts[current]
+  if not thenPrints or not nowPrints then return made > current and "newer" or "older" end
+  local moved = (spends(build.talents) and thenPrints[build.classId] ~= nowPrints[build.classId])
+    or (spends(build.legacy) and thenPrints.legacy ~= nowPrints.legacy)
+  return moved and "older" or nil
+end
+
 -- What to tell the player about a build before saving or following it: a list of { kind, text }, where kind is
 -- "Info" or "Warning".
 function Builds.Warnings(build, playerClassId)
@@ -86,10 +111,13 @@ function Builds.Warnings(build, playerClassId)
     out[#out + 1] = { kind = "Warning", text = "This build is for a " .. Builds.ClassName(build.classId)
       .. ". You can save it, and follow it on a character of that class." }
   end
-  local dataBuild = Core.GameBuildNumber(Data.build)
-  if build.gameBuild and build.gameBuild > 0 and build.gameBuild < dataBuild then
+  local age = Builds.GameVersionAge(build)
+  if age == "older" then
     out[#out + 1] = { kind = "Warning", text = "Made for an older game version (" .. build.gameBuild
-      .. "). Some talents may have moved since; check it in the Build Calculator." }
+      .. "). Some talents have moved since; check it in the Build Calculator." }
+  elseif age == "newer" then
+    out[#out + 1] = { kind = "Warning", text = "Made for a newer game version (" .. build.gameBuild .. ") than this "
+      .. "addon knows. Some talents may be in the wrong place: update Talents-4Everyone." }
   end
   if #build.order == 0 then
     out[#out + 1] = { kind = "Info", text = "This build has ranks only, no talent order. Add an order in the "

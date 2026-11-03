@@ -91,6 +91,10 @@ needs the same order.
 ## Build codes in Lua
 - The code records `Data.lua`'s game build, not the client's: positions in the code follow that data, and the site
   uses the build to spot an old layout. A client newer than the data gets a warning in the export box.
+- Importing, `Builds.GameVersionAge` uses the site's layout fingerprints (`Data.layouts`, from `classes.json`) the
+  way the site's `fromOldGameVersion` does: a code is old only when its class's (or the Legacy) layout changed
+  since its game build, and a code from a build newer than the data gets an "update the addon" warning. When the
+  site rebuilds its game data, run `tools\make-data.mjs` and release a new version (the tests fail until then).
 - Trees and indexes are 1-based in Lua and 0-based in the code. Bad codes raise errors; `Core.TryDecode` returns
   nil and a message for the player instead.
 - The game can't say in which order talents were learned, so exports carry ranks, never an order.

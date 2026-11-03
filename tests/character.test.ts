@@ -5,7 +5,7 @@ import { addon, evaluate } from './lua.ts';
 const FILES = ['Core.lua', 'Data.lua', 'Character.lua'];
 
 /** Stubs for the game API. ranks maps node id -> ranks bought; nodes not listed are unknown to the "game". */
-function game({ talentConfig = 'TALENTS', legacyConfig = 'LEGACY', clientBuild = '70707' } = {}): string {
+function game({ talentConfig = 'TALENTS', legacyConfig = 'LEGACY', clientBuild = '70753' } = {}): string {
   return `
     function UnitClass() return "Mage", "MAGE", 8 end
     function UnitRace() return "Gnome", "Gnome", 7 end
@@ -44,14 +44,14 @@ describe('Character.Read', () => {
   it('reads class, race, body type, level, talents, Legacy perks and gear into a build code', async () => {
     const lua = await addon(FILES, game());
     await lua.doString(spend);
-    expect(await evaluate(lua, read)).toBe('3.70707.8.7.1.42.23__001..1~d1u~15r~2f_g~exo.02|');
+    expect(await evaluate(lua, read)).toBe('3.70753.8.7.1.42.23__001..1~d1u~15r~2f_g~exo.02|');
   });
 
   it('leaves out what the game does not give, and says so', async () => {
     const lua = await addon(FILES, game({ talentConfig: null, legacyConfig: null, clientBuild: '70800' }));
     const [code, problems] = (await evaluate<string>(lua, read)).split('|');
-    expect(code).toBe('3.70707.8.7.1.42...1~d1u~15r~2f_g~exo.');
-    expect(problems).toMatch(/data is from game build 70707, the game is 70800/);
+    expect(code).toBe('3.70753.8.7.1.42...1~d1u~15r~2f_g~exo.');
+    expect(problems).toMatch(/data is from game build 70753, the game is 70800/);
     expect(problems).toMatch(/Talents left out/);
     expect(problems).toMatch(/Legacy perks left out/);
   });
@@ -59,7 +59,7 @@ describe('Character.Read', () => {
   it('on Retail, writes what it can and says what it left out', async () => {
     const lua = await addon(FILES, retail);
     const [code, problems] = (await evaluate<string>(lua, read)).split('|');
-    expect(code).toBe('3.70707.6.1.0.60...g~exo.');
+    expect(code).toBe('3.70753.6.1.0.60...g~exo.');
     expect(problems).toMatch(/Level 80 is above Forever's 60/);
     expect(problems).toMatch(/No talent data for this class/);
     expect(problems).toMatch(/Legacy perks left out/);

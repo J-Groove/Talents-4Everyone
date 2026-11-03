@@ -58,6 +58,27 @@ it('warns about another class, an older game version, and a build with no order'
   expect(out[1]).toMatch(/^Warning: Made for an older game version \(70532\)\.[^|]*$/);
 });
 
+it('calls a build old only when its class layout moved since, and warns about a newer game version', async () => {
+  const out = await run(`
+    function b(classId, gameBuild, talents, legacy)
+      return { classId = classId, gameBuild = gameBuild, talents = talents or { { 1 }, {}, {} }, legacy = legacy or {}, order = { 1 } }
+    end
+    function age(x) return tostring(B.GameVersionAge(x)) end
+    function warn(x) local w = B.Warnings(x, x.classId)[1]; return w and w.text or "" end`, [
+    'age(b(1, 70707))', // Warrior: same layout in 70707 and today's data
+    'age(b(2, 70707))', // Paladin: a talent removed since
+    'age(b(2, 70707, { {}, {}, {} }))', // Paladin with no talents spent: nothing to misplace
+    'age(b(2, 0))', // no game build recorded
+    'age(b(1, 99999))', // newer than the data knows
+    'age(b(1, 60000))', // older than any layout the data knows
+    'warn(b(2, 70707))',
+    'warn(b(1, 99999))',
+  ]);
+  expect(out.slice(0, 6)).toEqual(['nil', 'older', 'nil', 'nil', 'newer', 'older']);
+  expect(out[6]).toMatch(/^Made for an older game version \(70707\)\. Some talents have moved since/);
+  expect(out[7]).toMatch(/^Made for a newer game version \(99999\) than this addon knows\..*update Talents-4Everyone\.$/);
+});
+
 it('renames, follows only its own class, and forgets followers when deleted', async () => {
   const out = await run(`
     a = B.Add(db, ${JSON.stringify(MAGE_ORDER)}, "", 1)

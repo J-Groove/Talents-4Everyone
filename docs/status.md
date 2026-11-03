@@ -14,12 +14,10 @@ what is happening now. Keep it short.
 <!-- One line per chat: area · files/folders · since (date) · what is left. -->
 
 ## Waiting on someone
-- Owner: commit and push (TOC now has `X-Curse-Project-ID: 1781085`, plus the release workflow), then
-  `git tag -a v0.1.0 -m "Talents-4Everyone 0.1.0"` and `git push --tags`; only then the CF_API_KEY secret
-  (`docs\curseforge.md`, "After the first release").
-- Data.lua is behind the site: the site moved to game data 70753 (Paladin loses a talent, so its positions shift;
-  some Druid requirements change). 3 tests fail until `node tools/make-data.mjs` is run; that belongs in 0.1.1, after
-  the v0.1.0 tag, so the tag matches the uploaded file.
+- Owner: release 0.1.1 (ready, uncommitted): save the CF_API_KEY secret and set Actions to Read and write if not
+  done yet, commit, push, then `git tag -a v0.1.1 -m "Talents-4Everyone 0.1.1"` and `git push --tags`. Check on
+  CurseForge that it lands under Forever 1.60.1 (the packager's first upload). Without the secret, upload
+  `.release\Talents4e-0.1.1.zip` by hand instead.
 - Forever's launch: the talent window checks (badges, glow, order list, reminder, export's talents), screenshots 1
   to 3 in `docs\curseforge.md`, and the Beta file switched to Release.
 - Owner: confirm the two calls in `design.md`, "Decisions" (planner limits, our own minimap button).
@@ -32,6 +30,10 @@ what is happening now. Keep it short.
 - The order list's talent window checks on Forever itself once it is out (`/fstack` names, taint, the Apply step).
 
 ## Done lately (newest first)
+- 2026-11-03 · 0.1.1 prepared: `Data.lua` rebuilt for game build 1.60.1.70753 (the site's data; Paladin loses
+  One-Handed Weapon Specialization, some Druid requirements change), with the site's layout fingerprints
+  (`Data.layouts`). `Builds.GameVersionAge`: import calls a code old only when its class (or Legacy) layout moved,
+  as the site's `fromOldGameVersion`, and warns about codes from a newer game build. Tests: 39 passing.
 - 2026-11-03 · Approved on CurseForge: https://www.curseforge.com/wow/addons/talents-4everyone, project 1781085,
   0.1.0 Beta under Forever 1.60.1. Project ID added to the TOC; the daily approval check turned off; the website chat told.
 - 2026-11-02 · Release workflow: `.github\workflows\release.yml` (BigWigs packager on `v*` tags; Forever from
