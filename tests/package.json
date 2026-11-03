@@ -1,0 +1,13 @@
+{
+  "name": "talents4e-tests",
+  "private": true,
+  "type": "module",
+  "description": "Runs Talents4e's Lua outside the game and checks its build codes against the website's.",
+  "scripts": {
+    "test": "vitest run"
+  },
+  "devDependencies": {
+    "vitest": "^5.0.5",
+    "wasmoon": "^1.16.0"
+  }
+}

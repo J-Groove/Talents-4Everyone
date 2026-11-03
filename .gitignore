@@ -1,0 +1,11 @@
+# Release packages
+*.zip
+.release/
+
+# OS files
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Tests
+tests/node_modules/

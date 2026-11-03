@@ -1,0 +1,21 @@
+## Interface: 16001, 120100, 120105, 20506
+## Title: Talents-4Everyone
+## Notes: Export your character to the wow-4e.com Build Calculator, and follow a build while you level.
+## Author: Jeffrey Gruver
+## Version: 0.1.0
+## SavedVariables: Talents4eDB
+## IconTexture: Interface\AddOns\Talents4e\Media\Icon
+
+Core.lua
+Data.lua
+Character.lua
+Builds.lua
+Order.lua
+Rules.lua
+Windows.lua
+Planner.lua
+Talents.lua
+Reminder.lua
+Settings.lua
+Minimap.lua
+Talents4e.lua
