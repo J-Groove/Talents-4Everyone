@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.1
+- Talent data for the game patch of 4 November 2026 (build 1.60.1.70790), the same as wow-4e.com. No talents
+  changed, so builds from 1.0.0 still read the same; without this update the export box warns that the data is
+  from an older game build, and builds made on wow-4e.com today are called "made for a newer game version".
+
 ## 1.0.0
 - Talent data updated for the game patch to build 1.60.1.70755, the same as wow-4e.com:
   - Rogue: trees reworked. New: Blood Splatter, Boot Knife, Composure, Coup de Grace, Death Mark, Efficient

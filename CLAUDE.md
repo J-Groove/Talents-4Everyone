@@ -95,6 +95,10 @@ needs the same order.
   way the site's `fromOldGameVersion` does: a code is old only when its class's (or the Legacy) layout changed
   since its game build, and a code from a build newer than the data gets an "update the addon" warning. When the
   site rebuilds its game data, run `tools\make-data.mjs` and release a new version (the tests fail until then).
+  After a game patch, `node tools\post-patch.mjs` (or the workspace's `..\..\post-patch.ps1`, after the site's
+  `npm run post-patch`) does it: rebuilds `Data.lua`, lists the talents that changed in it, checks the TOC's
+  interface number against the installed Forever client and runs the tests. A new data build always needs a
+  release: the released addon otherwise warns on export and calls codes from the new build "newer".
 - Trees and indexes are 1-based in Lua and 0-based in the code. Bad codes raise errors; `Core.TryDecode` returns
   nil and a message for the player instead.
 - The game can't say in which order talents were learned, so exports carry ranks, never an order.

@@ -14,6 +14,9 @@ what is happening now. Keep it short.
 <!-- One line per chat: area · files/folders · since (date) · what is left. -->
 
 ## Waiting on someone
+- Owner: release 1.0.1 (prepared 2026-11-04, uncommitted): `Data.lua` for game build 1.60.1.70790, TOC version and
+  CHANGELOG. Commit, then `git tag -a v1.0.1 -m "Talents-4Everyone v1.0.1"` and `git push --follow-tags`. (v1.0.0 is
+  tagged already, so the 1.0.0 line below is done.)
 - Owner: release 1.0.0 (ready, uncommitted): commit, push, `git tag -a v1.0.0 -m "Talents-4Everyone v1.0.0"` on
   that commit, `git push --tags`. Check it shows on CurseForge as "Talents-4Everyone v1.0.0" (the first run of the
   `-n` name). The stray v0.1.2 file (a copy of 0.1.1) can be deleted on CurseForge. If the site changes its game
@@ -31,6 +34,10 @@ what is happening now. Keep it short.
 - The order list's talent window checks on Forever itself once it is out (`/fstack` names, taint, the Apply step).
 
 ## Done lately (newest first)
+- 2026-11-04 · 1.0.1 prepared: `Data.lua` rebuilt for game build 1.60.1.70790 (today's patch; no talent changed, only
+  the build and a new layout fingerprint). New `tools\post-patch.mjs`: rebuilds `Data.lua`, lists changed talents,
+  checks the TOC's interface number against the installed Forever client (16001, correct), runs the tests (39
+  passing). The workspace's `..\..\post-patch.ps1` calls it after the website's. Uncommitted.
 - 2026-11-04 · Icon: the site's 4E crest (`img\brand\crest.svg`) as `Media\Icon.tga` (owner). In 1.0.0. Not seen in game.
 - 2026-11-04 · 1.0.0 prepared: `Data.lua` rebuilt for game build 1.60.1.70755 (the site's data, uncommitted there):
   Rogue trees reworked, Warrior and Shaman talents swapped, details elsewhere. Tests now read the data build from
