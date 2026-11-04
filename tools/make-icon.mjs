@@ -1,7 +1,7 @@
-// Writes Media\Icon.tga, the minimap button's and the addon list's icon, from the website's 4E monogram (Figma
-// "4E — favicon master", node 13:3; wow-4e\apps\web\public\favicon.svg). The game reads TGA, not SVG or PNG, so the
-// letters are drawn on a round leather disc to sit inside the minimap button's round border. Run it after the
-// site's monogram changes:   node tools/make-icon.mjs [path to wow-4e]
+// Writes Media\Icon.tga, the minimap button's and the addon list's icon, from the website's 4E crest (Figma
+// "4E/Crest"; wow-4e\apps\web\public\img\brand\crest.svg: bronze ring, teal disc, cream 4, gold E), round already,
+// so it sits inside the minimap button's round border. The game reads TGA, not SVG or PNG. Run it after the site's
+// crest changes:   node tools/make-icon.mjs [path to wow-4e]
 // Uses sharp from the website repo's node_modules (npm install there first).
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import { createRequire } from 'node:module';
@@ -12,13 +12,7 @@ const site = resolve(process.argv[2] ?? join(here, '../../../wow-4e'));
 const sharp = createRequire(join(site, 'package.json'))('sharp');
 
 const SIZE = 64;
-const favicon = readFileSync(join(site, 'apps/web/public/favicon.svg'), 'utf8');
-// The favicon's letters, without its square tile, shrunk a little so their corners stay inside the circle.
-const letters = favicon.match(/<g[\s\S]*<\/g>/)[0];
-const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
-<circle cx="80" cy="80" r="80" fill="#170E09"/>
-<g transform="translate(80 80) scale(0.84) translate(-80 -80)">${letters}</g>
-</svg>`;
+const svg = readFileSync(join(site, 'apps/web/public/img/brand/crest.svg'), 'utf8');
 
 const { data } = await sharp(Buffer.from(svg), { density: 300 })
   .resize(SIZE, SIZE)

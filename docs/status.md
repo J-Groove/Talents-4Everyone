@@ -14,8 +14,11 @@ what is happening now. Keep it short.
 <!-- One line per chat: area · files/folders · since (date) · what is left. -->
 
 ## Waiting on someone
-- Owner: on CurseForge, rename the 0.1.1 file (Files > the file > Edit) from "v0.1.1-forever" to
-  "Talents-4Everyone v0.1.1"; commit and push the workflow fix. Next release: tag `v0.1.2`.
+- Owner: release 1.0.0 (ready, uncommitted): commit, push, `git tag -a v1.0.0 -m "Talents-4Everyone v1.0.0"` on
+  that commit, `git push --tags`. Check it shows on CurseForge as "Talents-4Everyone v1.0.0" (the first run of the
+  `-n` name). The stray v0.1.2 file (a copy of 0.1.1) can be deleted on CurseForge. If the site changes its game
+  data again before the tag, run `node tools/make-data.mjs` again.
+- Owner: maybe a new CurseForge logo (CurseForge settings only); the in-game icon is `Media\Icon.tga`.
 - Forever's launch: the talent window checks (badges, glow, order list, reminder, export's talents), screenshots 1
   to 3 in `docs\curseforge.md`, and the Beta file switched to Release.
 - Owner: confirm the two calls in `design.md`, "Decisions" (planner limits, our own minimap button).
@@ -28,6 +31,10 @@ what is happening now. Keep it short.
 - The order list's talent window checks on Forever itself once it is out (`/fstack` names, taint, the Apply step).
 
 ## Done lately (newest first)
+- 2026-11-04 · Icon: the site's 4E crest (`img\brand\crest.svg`) as `Media\Icon.tga` (owner). In 1.0.0. Not seen in game.
+- 2026-11-04 · 1.0.0 prepared: `Data.lua` rebuilt for game build 1.60.1.70755 (the site's data, uncommitted there):
+  Rogue trees reworked, Warrior and Shaman talents swapped, details elsewhere. Tests now read the data build from
+  `Data.lua` (`DATA_BUILD` in `tests\lua.ts`), so a data update no longer breaks them. 39 passing.
 - 2026-11-03 · 0.1.1 released by the packager (first automatic upload; CurseForge filed it under Forever 1.60.1 as
   Release, named "v0.1.1-forever" by the packager's default). The workflow now names files "Talents-4Everyone
   <tag>", e.g. "Talents-4Everyone v0.1.2".

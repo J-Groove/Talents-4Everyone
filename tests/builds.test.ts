@@ -65,7 +65,7 @@ it('calls a build old only when its class layout moved since, and warns about a 
     end
     function age(x) return tostring(B.GameVersionAge(x)) end
     function warn(x) local w = B.Warnings(x, x.classId)[1]; return w and w.text or "" end`, [
-    'age(b(1, 70707))', // Warrior: same layout in 70707 and today's data
+    'age(b(5, 70707))', // Priest: same layout in 70707 and today's data
     'age(b(2, 70707))', // Paladin: a talent removed since
     'age(b(2, 70707, { {}, {}, {} }))', // Paladin with no talents spent: nothing to misplace
     'age(b(2, 0))', // no game build recorded

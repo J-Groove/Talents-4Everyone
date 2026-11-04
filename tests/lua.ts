@@ -8,6 +8,9 @@ export const ADDON_DIR = join(import.meta.dirname, '..');
 const factory = new LuaFactory();
 
 /** The Lua files the TOC loads, in order. */
+/** Data.lua's game build ("1.60.1.70755") and its build number, which build codes record. */
+export const DATA_BUILD = /build = "([^"]+)"/.exec(readFileSync(join(ADDON_DIR, 'Data.lua'), 'utf8'))![1];
+export const DATA_BUILD_NUMBER = DATA_BUILD.split('.').pop()!;
 export const TOC_FILES = readFileSync(join(ADDON_DIR, 'Talents4e.toc'), 'utf8').split(String.fromCharCode(10)).map((line) => line.trim()).filter((line) => line.endsWith('.lua'));
 
 /** A stand-in for the game's UI and unit functions, enough to build the windows (a Mage, Jeff-Realm). */

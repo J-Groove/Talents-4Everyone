@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.0
+- Talent data updated for the game patch to build 1.60.1.70755, the same as wow-4e.com:
+  - Rogue: trees reworked. New: Blood Splatter, Boot Knife, Composure, Coup de Grace, Death Mark, Efficient
+    Strikes, Flash of Steel, Quick Getaway. Gone: Cutthroat, Improved Distract, Improved Eviscerate, Improved
+    Sinister Strike, Murder, Quietus, Thousand Cuts.
+  - Warrior: Improved Whirlwind and Reckless Swings replace Raging Blows.
+  - Shaman: Call of Thunder and Lightning Mastery replace Lava Burst and Elemental Mastery.
+  - Other classes: talent details and requirements updated.
+- Rogue, Warrior and Shaman builds made before the patch import with a warning that their talents have moved:
+  open them in the Build Calculator on wow-4e.com, fix them and import them again.
+- The minimap button and the AddOns list show the new wow-4e.com crest.
+
 ## 0.1.1
 - Talent data updated to game build 1.60.1.70753, the same as wow-4e.com: Paladin loses One-Handed Weapon
   Specialization, so Paladin builds made on the site now import with every talent in the right place, and a few

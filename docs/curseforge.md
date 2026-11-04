@@ -43,7 +43,7 @@ At [authors.curseforge.com](https://authors.curseforge.com), sign in, then Creat
 - **Licence:** Apache License 2.0.
 - **Source / issues:** the GitHub repo's address, once it exists (the repo is public, like VendEver).
 - **Logo (avatar):** a square picture of our own. Never Blizzard art or an icon taken from the game; a
-  wow-4e.com brand mark is fine: the site's `wow-4epps\web\public\icon-512.png` (the 4E monogram, the same
+  wow-4e.com brand mark is fine: the site's `wow-4e\apps\web\public\icon-512.png` (the 4E crest, the same
   mark as the minimap button) fits. 400 by 400 px or larger is a safe size.
 
 New projects are checked by CurseForge's moderators before they go public. That usually takes from a few hours to

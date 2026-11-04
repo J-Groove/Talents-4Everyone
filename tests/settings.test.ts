@@ -1,7 +1,7 @@
 // The Settings page (Settings.lua) against a stand-in of Blizzard's Settings API, and the minimap button
 // (Minimap.lua): both set up on ADDON_LOADED, and a setting turned off applies at once.
 import { expect, it } from 'vitest';
-import { TOC_FILES, UI_STUB, addon, evaluateAll } from './lua.ts';
+import { DATA_BUILD, TOC_FILES, UI_STUB, addon, evaluateAll } from './lua.ts';
 
 const SETTINGS_STUB = `${UI_STUB}
   Minimap = CreateFrame("Frame")
@@ -41,7 +41,7 @@ it('adds the Settings page and the minimap button, and applies a setting at once
   ]);
   expect(out).toEqual([
     'Talents-4Everyone', '4', 'Level numbers on talents', 'true', 'Reset', 'Open Talents-4Everyone',
-    'v0.1.0 · data 1.60.1.70753', 'true', 'false', 'false', 'false', 'false', 'true', 'true', '77',
+    `v0.1.0 · data ${DATA_BUILD}`, 'true', 'false', 'false', 'false', 'false', 'true', 'true', '77',
   ]);
 });
 

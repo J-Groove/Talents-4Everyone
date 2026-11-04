@@ -57,9 +57,9 @@ In TOC load order:
   and `Settings.RegisterAddOnSetting` (the 11.0 form, which EnhanceQoL also uses on Forever). Does nothing on a
   client without that API.
 - `Minimap.lua`: the minimap button, our own (no LibDBIcon): click opens the main window, right-click opens
-  Settings, drag moves it. Its icon is `Media\Icon.tga`, the site's 4E monogram on a round disc, also the TOC's
-  `IconTexture` (the addon list). Made by `tools\make-icon.mjs` from the site's `favicon.svg` (Figma node 13:3);
-  run it again if the monogram changes. The game reads TGA or BLP, not PNG or SVG.
+  Settings, drag moves it. Its icon is `Media\Icon.tga`, the site's 4E crest (owner, 2026-11-04), also the TOC's
+  `IconTexture` (the addon list). Made by `tools\make-icon.mjs` from the site's `img\brand\crest.svg`; run it again
+  if the crest changes. The game reads TGA or BLP, not PNG or SVG.
 - `Talents4e.lua`: `/t4e` and `/talents4e` (toggle the main window) and `ADDON_LOADED`, which sets up `Talents4eDB`, the
   Settings page and the minimap button.
 - `.github\workflows\release.yml` (the BigWigs packager on version tags), `tools\make-data.mjs`, `tools\make-icon.mjs`, `tools\package.ps1` (builds the CurseForge zip by hand into `.release\`), `tests\`:
