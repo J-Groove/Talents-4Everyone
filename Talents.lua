@@ -153,11 +153,19 @@ local function makeGlow(r, g, b)
   return f
 end
 
+-- Puts one of our frames just above Blizzard's talent button. Forever's talent buttons sit far above the window's
+-- own frame level, so a frame placed by the window's level alone is hidden behind them (seen in game, 2026-11-05).
+local function above(f, button, by)
+  f:SetFrameStrata(button:GetFrameStrata())
+  f:SetFrameLevel(math.min(9999, button:GetFrameLevel() + by))
+end
+
 local function placeGlow(f, button, pulse)
   if not button then
     f:Hide()
     return
   end
+  above(f, button, 4)
   f:ClearAllPoints()
   f:SetPoint("TOPLEFT", button, "TOPLEFT", -14, 14)
   f:SetPoint("BOTTOMRIGHT", button, "BOTTOMRIGHT", 14, -14)
@@ -181,9 +189,11 @@ local function makeBadge()
   return b
 end
 
+-- The badge sits on the button's top-left corner: the game shows the rank at the bottom right.
 local function drawBadge(b, badge, button)
+  above(b, button, 6)
   b:ClearAllPoints()
-  b:SetPoint("BOTTOMRIGHT", button, "BOTTOMRIGHT", 4, -3)
+  b:SetPoint("TOPLEFT", button, "TOPLEFT", -4, 3)
   b.label:SetShown(badge.text ~= nil)
   b.icon:SetShown(badge.text == nil)
   if badge.kind == "next" then

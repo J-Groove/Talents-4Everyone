@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.2
+- The level numbers and the glow on the talent window now show on top of the talents. In 1.0.0 and 1.0.1 they
+  were hidden behind the talent buttons, so only a sliver of the next talent's badge showed.
+- The level number now sits on each talent's top-left corner, so it no longer covers the game's own rank count.
+
 ## 1.0.1
 - Talent data for the game patch of 4 November 2026 (build 1.60.1.70790), the same as wow-4e.com. No talents
   changed, so builds from 1.0.0 still read the same; without this update the export box warns that the data is

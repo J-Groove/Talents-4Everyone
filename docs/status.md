@@ -14,13 +14,9 @@ what is happening now. Keep it short.
 <!-- One line per chat: area · files/folders · since (date) · what is left. -->
 
 ## Waiting on someone
-- Owner: release 1.0.1 (prepared 2026-11-04, uncommitted): `Data.lua` for game build 1.60.1.70790, TOC version and
-  CHANGELOG. Commit, then `git tag -a v1.0.1 -m "Talents-4Everyone v1.0.1"` and `git push --follow-tags`. (v1.0.0 is
-  tagged already, so the 1.0.0 line below is done.)
-- Owner: release 1.0.0 (ready, uncommitted): commit, push, `git tag -a v1.0.0 -m "Talents-4Everyone v1.0.0"` on
-  that commit, `git push --tags`. Check it shows on CurseForge as "Talents-4Everyone v1.0.0" (the first run of the
-  `-n` name). The stray v0.1.2 file (a copy of 0.1.1) can be deleted on CurseForge. If the site changes its game
-  data again before the tag, run `node tools/make-data.mjs` again.
+- Owner: try 1.0.2 in game (prepared 2026-11-05, uncommitted): the level numbers and the glow on the talent window
+  show above the talents now, numbers on the top-left corner. Then commit, `git tag -a v1.0.2 -m "Talents-4Everyone
+  v1.0.2"`, `git push --follow-tags`.
 - Owner: maybe a new CurseForge logo (CurseForge settings only); the in-game icon is `Media\Icon.tga`.
 - Forever's launch: the talent window checks (badges, glow, order list, reminder, export's talents), screenshots 1
   to 3 in `docs\curseforge.md`, and the Beta file switched to Release.
@@ -34,6 +30,9 @@ what is happening now. Keep it short.
 - The order list's talent window checks on Forever itself once it is out (`/fstack` names, taint, the Apply step).
 
 ## Done lately (newest first)
+- 2026-11-05 · First look on live Forever (owner's screenshot): the order list docks and reads right, but the badges
+  and glow were drawn under Forever's talent buttons. Fixed in `Talents.lua` (`above`: each badge and glow takes its
+  button's strata and level + a few); badges moved to the top-left corner, clear of the game's rank count.
 - 2026-11-04 · 1.0.1 prepared: `Data.lua` rebuilt for game build 1.60.1.70790 (today's patch; no talent changed, only
   the build and a new layout fingerprint). New `tools\post-patch.mjs`: rebuilds `Data.lua`, lists changed talents,
   checks the TOC's interface number against the installed Forever client (16001, correct), runs the tests (39
