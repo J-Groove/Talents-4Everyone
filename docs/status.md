@@ -14,9 +14,8 @@ what is happening now. Keep it short.
 <!-- One line per chat: area · files/folders · since (date) · what is left. -->
 
 ## Waiting on someone
-- Owner: try 1.0.2 in game (prepared 2026-11-05, uncommitted): the level numbers and the glow on the talent window
-  show above the talents now, numbers on the top-left corner. Then commit, `git tag -a v1.0.2 -m "Talents-4Everyone
-  v1.0.2"`, `git push --follow-tags`.
+- Owner: try 1.0.2 in game (tagged and pushed 2026-11-05): the level numbers and the glow on the talent window
+  show above the talents, numbers on the top-left corner.
 - Owner: maybe a new CurseForge logo (CurseForge settings only); the in-game icon is `Media\Icon.tga`.
 - Forever's launch: the talent window checks (badges, glow, order list, reminder, export's talents), screenshots 1
   to 3 in `docs\curseforge.md`, and the Beta file switched to Release.
@@ -52,7 +51,7 @@ what is happening now. Keep it short.
   0.1.0 Beta under Forever 1.60.1. Project ID added to the TOC; the daily approval check turned off; the website chat told.
 - 2026-11-02 · Release workflow: `.github\workflows\release.yml` (BigWigs packager on `v*` tags; Forever from
   Interface 16001). Switch-on steps in `docs\curseforge.md`; needs the CF_API_KEY secret after the v0.1.0 tag. Not run yet.
-- 2026-11-02 · Renamed Talents-4Everyone (owner): code name Talents4e, folder `addons	alents4e`, `Talents4e.toc`,
+- 2026-11-02 · Renamed Talents-4Everyone (owner): code name Talents4e, folder `addons\talents4e`, `Talents4e.toc`,
   `Talents4e.lua`, `Talents4eDB`, `/t4e` and `/talents4e`, frame and popup names. Retail and Anniversary relinked as
   `Talents4e`; Retail's saved builds copied to `Talents4e.lua` (the old `Build4e.lua` left in place). Screenshots to retake.
 - 2026-11-02 · Settings labels shortened (they were cut off in game). Linked into `_anniversary_` (the Classic Era link

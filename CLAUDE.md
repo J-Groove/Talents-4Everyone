@@ -8,7 +8,7 @@ order listed beside the window). The gear guide is left out for now. Rules share
 Lua 5.1, layout, TOC, CurseForge releases, the website) are in `..\CLAUDE.md`; this file holds only what is true for
 Talents4e.
 
-Stage: 0.1.0 uploaded to CurseForge by hand, waiting for approval (2026-11-02); repo J-Groove/Talents-4Everyone
+Stage: released; 1.0.2 tagged and pushed 2026-11-05 (first CurseForge release 0.1.0, 2026-11-02); repo J-Groove/Talents-4Everyone
 (public). The windows, import, export, the planner, Settings and the minimap button work on Retail and Anniversary;
 the talent order on the talent window waits for Forever itself. Releases after 0.1.0 go by tag through
 `.github\workflows\release.yml` (`docs\curseforge.md`). The plan is `docs\design.md`; work in progress is
