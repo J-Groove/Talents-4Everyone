@@ -14,6 +14,7 @@ what is happening now. Keep it short.
 <!-- One line per chat: area · files/folders · since (date) · what is left. -->
 
 ## Waiting on someone
+- Owner: release 1.0.4 (prepared 2026-11-08, uncommitted): `Data.lua` for build 1.60.1.70862, and `Media\Icon.tga` put back in git (the v1.0.3 commit deleted it, so 1.0.3 shipped with no icon). Tag after the site's data is pushed.
 - Owner: try 1.0.2 in game (tagged and pushed 2026-11-05): the level numbers and the glow on the talent window
   show above the talents, numbers on the top-left corner.
 - Owner: maybe a new CurseForge logo (CurseForge settings only); the in-game icon is `Media\Icon.tga`.
@@ -29,6 +30,11 @@ what is happening now. Keep it short.
 - The order list's talent window checks on Forever itself once it is out (`/fstack` names, taint, the Apply step).
 
 ## Done lately (newest first)
+- 2026-11-08 · 1.0.4 prepared: `Data.lua` rebuilt for game build 1.60.1.70862 (no talent changed), TOC Version 1.0.4 (the v1.0.3 tag kept TOC 1.0.2), CHANGELOG entry. 39 tests pass.
+- 2026-11-06 · `Media\Icon.tga` restored (the 4E crest, uncommitted): commit 00f8f18 (tag v1.0.3) had deleted it while
+  the TOC's `IconTexture` and `Minimap.lua` still use it, so v1.0.3 shows a blank icon. Remade by
+  `tools\make-icon.mjs`, identical to v1.0.2's. Forever relinked to this folder (the 2026-11-05 link had vanished).
+  The TOC still says 1.0.2: raise it before the next tag.
 - 2026-11-05 · First look on live Forever (owner's screenshot): the order list docks and reads right, but the badges
   and glow were drawn under Forever's talent buttons. Fixed in `Talents.lua` (`above`: each badge and glow takes its
   button's strata and level + a few); badges moved to the top-left corner, clear of the game's rank count.

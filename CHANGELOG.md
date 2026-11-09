@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.4
+- Talent data for the game patch of 8 November 2026 (build 1.60.1.70862), the same as wow-4e.com. No talents
+  changed, so your saved builds read the same; without this update the export box warns that the data is from an
+  older game build.
+- The minimap button and the addon list show the Talents-4Everyone icon again (1.0.3 was missing it).
+
 ## 1.0.2
 - The level numbers and the glow on the talent window now show on top of the talents. In 1.0.0 and 1.0.1 they
   were hidden behind the talent buttons, so only a sliver of the next talent's badge showed.
