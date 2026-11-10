@@ -11,6 +11,7 @@ import { spawnSync } from 'node:child_process';
 import { existsSync, readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { parseArgs } from 'node:util';
+import { readData } from './data-lua.mjs';
 
 const { values } = parseArgs({
   options: {
@@ -27,24 +28,6 @@ const tocFile = join(addon, 'Talents4e.toc');
 const needsYou = [];
 const report = ['## Talents-4Everyone'];
 let failed = false;
-
-/** Talents per class and tree from Data.lua, as "Class Tree" -> Map(name -> "ranks, row, col, req"). */
-function readData(text) {
-  const trees = new Map();
-  let className = '';
-  let tree = null;
-  for (const line of text.split(/\r?\n/)) {
-    const cls = /^ {4}\[\d+\] = \{ name = "([^"]+)", icon = "classicon_/.exec(line);
-    if (cls) { className = cls[1]; continue; }
-    const t = /^ {6}\{ id = \d+, name = "([^"]+)"/.exec(line);
-    if (t) { tree = new Map(); trees.set(`${className} ${t[1]}`, tree); continue; }
-    const talent = /^ {10}\{ name = "((?:[^"\\]|\\.)*)", icon = "[^"]*", ranks = (\d+), spell = (\d+), row = (\d+), col = (\d+)(?:, req = \{ index = (\d+), rank = (\d+) \})?/.exec(line);
-    if (talent && tree) tree.set(talent[1], `${talent[2]} ranks, row ${talent[4]} col ${talent[5]}${talent[6] ? `, needs #${talent[6]} at ${talent[7]}` : ''}, spell ${talent[3]}`);
-  }
-  const build = /build = "([^"]+)"/.exec(text)?.[1] ?? '?';
-  const layouts = [...text.matchAll(/^ {4}\[(\d+)\] = \{ \[\d+\] = "/gm)].map((m) => m[1]);
-  return { build, trees, layouts };
-}
 
 /** The installed Forever client's version from the game folder's .build.info, or undefined. */
 export function foreverVersion(gameDir) {
@@ -63,7 +46,7 @@ export const interfaceNumber = (version) => {
   return major * 10000 + minor * 100 + patch;
 };
 
-const before = existsSync(dataFile) ? readData(readFileSync(dataFile, 'utf8')) : { build: 'none', trees: new Map(), layouts: [] };
+const before = existsSync(dataFile) ? readData(readFileSync(dataFile, 'utf8')) : { build: 'none', trees: new Map(), classes: new Map(), layouts: new Map() };
 
 // 1. Data.lua from the site's data.
 console.log('== Rebuilding Data.lua (tools/make-data.mjs) ==');
@@ -84,7 +67,7 @@ for (const [name, tree] of after.trees) {
 }
 for (const name of before.trees.keys()) if (!after.trees.has(name)) lines.push(`removed tree ${name}`);
 report.push(...(lines.length > 0 ? lines.map((l) => `- ${l}`) : ['- No talent changes (names, ranks, grid, prerequisites, spells).']));
-const newLayouts = after.layouts.filter((b) => !before.layouts.includes(b));
+const newLayouts = [...after.layouts.keys()].filter((b) => !before.layouts.has(b));
 if (newLayouts.length > 0) report.push(`- Layout fingerprints added for build ${newLayouts.join(', ')}`);
 if (before.build !== after.build) {
   needsYou.push(`Data.lua moved to ${after.build}: players on the released version see "talent data is from game build ${before.build.split('.').pop()}" on export and call codes from the new build "newer", so this needs a release (version in the TOC and CHANGELOG.md).`);

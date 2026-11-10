@@ -62,6 +62,9 @@ In TOC load order:
   if the crest changes. The game reads TGA or BLP, not PNG or SVG.
 - `Talents4e.lua`: `/t4e` and `/talents4e` (toggle the main window) and `ADDON_LOADED`, which sets up `Talents4eDB`, the
   Settings page and the minimap button.
+- `tools\prepare-release.mjs` (raises the TOC version and writes the CHANGELOG section from what changed in
+  `Data.lua` since the last `v*` tag; the workspace's `..\..\prepare-talents4e.ps1` runs it) and `tools\data-lua.mjs`
+  (reads `Data.lua` for it and for `tools\post-patch.mjs`).
 - `.github\workflows\release.yml` (the BigWigs packager on version tags), `tools\make-data.mjs`, `tools\make-icon.mjs`, `tools\package.ps1` (builds the CurseForge zip by hand into `.release\`), `tests\`:
   development only, left out of the CurseForge zip. Publishing steps: `docs\curseforge.md`.
 

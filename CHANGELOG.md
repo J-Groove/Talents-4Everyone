@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.5
+- Talent data for game build 1.60.1.70888, the same as wow-4e.com. No talents changed, so your saved builds read the
+  same; without this update the export box warns that the data is from an older game build.
+
 ## 1.0.4
 - Talent data for the game patch of 8 November 2026 (build 1.60.1.70862), the same as wow-4e.com. No talents
   changed, so your saved builds read the same; without this update the export box warns that the data is from an
