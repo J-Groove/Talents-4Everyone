@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.7
+- New plan and Edit now plan all the way to level 60, as the Build Calculator on wow-4e.com does, whatever your
+  character's level. Before, a plan stopped at the points you had now.
+- Talent tooltips in the planner show the rank you've planned and, below it, the next rank, as the game's talent
+  window does (Wand Specialization: 13%, next rank 25%). Before, every talent showed one rank's words whatever you
+  had planned. The order lists, in the planner and beside the talent window, show each step's own rank too.
+
 ## 1.0.6
 - Talent data for game build 1.60.1.70938, the same as wow-4e.com. No talents changed, so your saved builds read the
   same; without this update the export box warns that the data is from an older game build.

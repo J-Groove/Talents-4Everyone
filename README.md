@@ -19,8 +19,8 @@ By hand: copy this folder into `World of Warcraft\_forever_\Interface\AddOns\Tal
 - **Follow**: the build this character follows. Open your talents and each planned talent shows the level its next
   rank is due, the next one to take glows, and the order is listed beside the window. A reminder names the next
   talent when you level up.
-- **New plan**, **Edit**: the talent planner. Click talents in the order you'll take them, one point per level up to
-  your level (Talented counts); right-click takes a point off. Start from my talents lists your current points to
+- **New plan**, **Edit**: the talent planner. Click talents in the order you'll take them, one point per level all
+  the way to level 60, whatever your level (Talented counts); right-click takes a point off. Start from my talents lists your current points to
   put in order. Save it as a build, or copy its wow-4e.com link.
 - **Rename**, **Delete**: tidy your saved builds.
 - **Export my character**: your character as a wow-4e.com Build Calculator link, ready to copy.

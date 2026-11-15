@@ -60,9 +60,10 @@ export has ranks only. The planner fills that gap, and lets a player plan in gam
 class trees drawn by the addon, each talent clicked in the order it was (or will be) taken.
 - Left-click adds the next point to a talent; right-click takes the talent's last point off. Each point gets the
   next level: the first at the character's first talent level, one per level after.
-- **How many points:** up to what the character has at its current level, counting the Talented Legacy perk the
-  character really has (read from the game, as export does): level 23 with no Talented is 14 points, with
-  Talented 5/5 it is 19. The header says so: "14 of 14 points (level 23, from level 10)".
+- **How many points:** every point to level 60, as on the site, whatever the character's level (owner,
+  2026-11-15): 51, reached at 60 with no Talented and earlier with it. The first level counts the Talented Legacy
+  perk the character really has (read from the game, as export does). The header says how far the plan reaches:
+  "14 of 51 points · to level 23 · first point at level 10".
 - **Start from my talents** (button): loads the character's current ranks as a pool to put in order, so a player
   can write down how they got here; points not yet ordered are listed until placed.
 - The site's talent rules apply: a row needs 5 points above it in that tree, a prerequisite needs its rank first,
@@ -179,16 +180,15 @@ Names to check (from memory, not yet checked on Forever or CurseForge): **AtlasL
 - Export gives the whole `https://wow-4e.com/builds/new#b=...` link: pasting it in a browser opens the build.
   Import will accept a bare code too.
 - The export carries talent ranks, not an order: the game doesn't record when each talent was learned.
-- Planner, as built (2026-11-02): points up to the character's level, but a saved build that plans further (an
-  imported level-60 build) can be edited in full. Ranks-only builds and Start from my talents become a pool of
+- Planner: every plan runs to level 60 (all 51 points), whatever the character's level, as on the site (owner,
+  2026-11-15, in 1.0.7; until then it stopped at the character's level). Ranks-only builds and Start from my talents become a pool of
   points to click in order; Place the rest puts what's left at the end, top rows first. Legacy perks are read, not
-  planned. Owner to confirm.
+  planned.
 - Minimap button: our own small button rather than LibDBIcon (2026-11-02), so nothing third-party has to be
   embedded. Switch to LibDBIcon if players ask for minimap-button collectors to pick it up. Owner to confirm.
 
 ## Open questions
-- Planner: should it also allow planning past the character's level (to 60, like the site), or only up to it as
-  decided for now? And should it plan Legacy perks too, or only read the character's?
+- Planner: should it plan Legacy perks too, or only read the character's?
 - Recording the order as it happens: from install on, the addon could note which talent gained a rank at which
   level (`TRAIT_CONFIG_UPDATED`), so later exports carry a real order without the planner. Worth doing?
 - Do `C_ClassTalents.GetActiveConfigID()` and `C_Traits.GetConfigIDBySystemID(45)` answer on Forever, and does

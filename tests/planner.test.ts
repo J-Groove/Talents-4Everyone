@@ -46,22 +46,24 @@ it('places points one per level and refuses what the rules refuse, in words', as
     for _ = 1, 5 do ns.Planner.Click(p, 1, 2) end
     ns.Planner.Click(p, 1, 4)
     ns.Planner.Click(p, 1, 1)
-    full = ns.Planner.Click(p, 1, 1)
-    fullText = p.message.text
+    -- Past the character's level 16: the plan runs on to 60.
+    past = ns.Planner.Click(p, 1, 1)
+    pastLevel = ns.Planner.Rows(p)[8].level
+    ns.Planner.Click(p, 1, 1, true)
     -- Channeling's last point holds Arcane Subtlety's row: refused. Wand's comes off.
     channelOff = ns.Planner.Click(p, 1, 2, true)
     channelText = p.message.text
     wandOff = ns.Planner.Click(p, 1, 1, true)`);
   const out = await evaluateAll(lua, [
-    'first', 'lockedOk', 'locked', 'full', 'fullText', 'channelOff', 'channelText', 'wandOff', 'orderLine(p)',
-    'ns.Planner.Summary(p, 16)', 'table.concat(ns.Planner.Levels(p, 1, 2), ",")', 'ns.Planner.Rows(p)[6].rank',
+    'first', 'lockedOk', 'locked', 'past', 'pastLevel', 'channelOff', 'channelText', 'wandOff', 'orderLine(p)',
+    'ns.Planner.Summary(p)', 'table.concat(ns.Planner.Levels(p, 1, 2), ",")', 'ns.Planner.Rows(p)[6].rank',
     'ns.Planner.Rows(p)[6].level', 'ns.Planner.Hint(p).text', 'p.dirty',
   ]);
   expect(out).toEqual([
     'Click a talent to take it at level 10.', 'false', 'Arcane Subtlety needs 5 points in Arcane above it first.',
-    'false', 'Every point you have at this level is placed.',
+    'true', '17',
     'false', 'Arcane Subtlety cannot be taken at level 14: it needs 5 points in Arcane above it first.', 'true',
-    '1:2 1:2 1:2 1:2 1:2 1:4', '6 of 7 points · level 16 · first point at level 10', '10,11,12,13,14', '1 of 2', '15',
+    '1:2 1:2 1:2 1:2 1:2 1:4', '6 of 51 points · to level 15 · first point at level 10', '10,11,12,13,14', '1 of 2', '15',
     'Left-click adds a point at level 16. Right-click takes a talent\'s last point off.', 'true',
   ]);
 });
@@ -73,8 +75,31 @@ it('counts Talented, and takes a step out of the middle only when the rest still
     p = ns.Planner.New({ classId = 8, level = 12, legacyRanks = legacy })
     for _, i in ipairs({ 3, 2, 3, 1 }) do ns.Planner.Click(p, 1, i) end
     middle = ns.Planner.RemoveAt(p, 2)`);
-  expect(await evaluateAll(lua, ['p.firstLevel', 'p.limit', 'middle', 'orderLine(p)', 'ns.Planner.Summary(p, 12)']))
-    .toEqual(['9', '4', 'true', '1:3 1:3 1:1', '3 of 4 points · level 12 · first point at level 9 (Talented)']);
+  expect(await evaluateAll(lua, ['p.firstLevel', 'p.limit', 'middle', 'orderLine(p)', 'ns.Planner.Summary(p)']))
+    .toEqual(['9', '51', 'true', '1:3 1:3 1:1', '3 of 51 points · to level 11 · first point at level 9 (Talented)']);
+});
+
+it('plans all 51 points to level 60 on a low-level character', async () => {
+  const lua = await planner(12);
+  await lua.doString(`
+    p = ns.Planner.New({ classId = 8, level = 12, base = ns.Character.Read() })
+    for _ = 1, 10 do
+      for t = 1, 3 do
+        for i = 1, #p.shapes[t] do ns.Planner.Click(p, t, i) end
+      end
+    end
+    full = false
+    for t = 1, 3 do
+      for i = 1, #p.shapes[t] do
+        if not ns.Planner.Click(p, t, i) and p.message.text == "All 51 points are placed." then full = true end
+      end
+    end
+    p.message = nil
+    built = ns.Planner.Build(p)`);
+  expect(await evaluateAll(lua, ['#p.order', 'full', 'ns.Planner.Hint(p).text', 'built.level',
+    'ns.Planner.Summary(p)']))
+    .toEqual(['51', 'true', 'Every point to level 60 is placed. Save it, or copy the link.', '60',
+      '51 of 51 points · to level 60 · first point at level 10']);
 });
 
 it('puts a ranks-only build or the character\'s talents in order from a pool', async () => {
@@ -92,7 +117,7 @@ it('puts a ranks-only build or the character\'s talents in order from a pool', a
     ns.Planner.StartFrom(mine, (ns.Character.Ranks()))
     _, mineLeft = ns.Planner.PoolLeft(mine)`);
   expect(await evaluateAll(lua, ['p.limit', 'poolBefore', 'hint', 'placed', 'mineLeft']))
-    .toEqual(['11', '7', 'Points from your talents still to place: 6. Click them in the order you took them, or Place the rest.',
+    .toEqual(['51', '7', 'Points from your talents still to place: 6. Click them in the order you took them, or Place the rest.',
       '1:2 1:2 1:2 1:2 1:2 1:4 1:4', '5']);
 });
 
@@ -130,5 +155,36 @@ it('opens from the main window, saves a new build and follows it, and saves over
     '|cff40ff403/5|r', 'Improved Channeling', '2', '1', 'Mage, Arcane', 'true',
     '2', '7', '14', 'false', 'true',
     'true', '3', 'TALENTS4E_SAVE_OVER:Mage, Arcane', '1', '3', 'Mage, Arcane',
+  ]);
+});
+
+it('shows each talent rank\'s own words and the next rank, as the game\'s talent window does', async () => {
+  const lua = await planner(20);
+  await lua.doString(`
+    p = ns.Planner.New({ classId = 8, level = 20 })
+    local function say(i) return i.text .. "|" .. tostring(i.nextText) end
+    none = say(ns.Planner.RankInfo(p, 1, 1))
+    ns.Planner.Click(p, 1, 1)
+    one = say(ns.Planner.RankInfo(p, 1, 1))
+    ns.Planner.Click(p, 1, 1)
+    two = say(ns.Planner.RankInfo(p, 1, 1))
+    kind = ns.Planner.RankInfo(p, 1, 1).kind
+    rowText = ns.Planner.Rows(p)[1].text
+    -- The window's tooltip, through a recording GameTooltip.
+    lines = {}
+    GameTooltip.SetText = function(_, t) lines = { t } end
+    GameTooltip.AddLine = function(_, t) lines[#lines + 1] = t end
+    GameTooltip.SetOwner, GameTooltip.Show = function() end, function() end
+    ns.Planner.Open(nil)
+    q = ns.Planner.Current()
+    ns.Planner.Click(q, 1, 1)
+    b = Talents4ePlannerFrame.trees[1].buttons[1]
+    b._scripts.OnEnter(b)
+    tip = table.concat(lines, "|")`);
+  const r1 = 'Increases your damage with Wands by 13%.';
+  const r2 = 'Increases your damage with Wands by 25%.';
+  expect(await evaluateAll(lua, ['none', 'one', 'two', 'kind', 'rowText', 'tip'])).toEqual([
+    `${r1}|nil`, `${r1}|${r2}`, `${r2}|nil`, 'Passive', r1,
+    `Wand Specialization|Passive · Rank 1/2|${r1}| |Next rank:|${r2}|Taken at level 10|Left-click: add a point. Right-click: take the last one off.`,
   ]);
 });

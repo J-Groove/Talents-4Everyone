@@ -66,6 +66,7 @@ function Talents.Rows(build, plan, level)
     rows[#rows + 1] = {
       kind = "step", step = k, level = step.level, tree = step.tree, index = step.index,
       name = t.name, icon = t.icon, spell = t.spell, rank = step.rank .. " of " .. t.ranks,
+      text = t.desc and t.desc[step.rank],
       state = step.taken and "taken" or (k == plan.next and "next" or "later"), reached = step.level <= level,
     }
   end
@@ -76,6 +77,7 @@ function Talents.Rows(build, plan, level)
       local planned = off.have - off.extra
       rows[#rows + 1] = {
         kind = "off", tree = off.tree, index = off.index, name = t.name, icon = t.icon, spell = t.spell,
+        text = t.desc and t.desc[math.max(1, math.min(off.have, t.ranks))],
         rank = off.have .. " of " .. t.ranks .. (planned > 0 and (" (" .. planned .. " planned)") or ""),
       }
     end
@@ -232,7 +234,12 @@ end
 
 local function showTalentTooltip(row)
   GameTooltip:SetOwner(row, "ANCHOR_RIGHT")
-  if row.data.spell and row.data.spell > 0 and GameTooltip.SetSpellByID then
+  if row.data.text then
+    -- That rank's own words (site data), not the one fixed spell the game would show for every rank.
+    GameTooltip:SetText(row.data.name, 1, 1, 1)
+    GameTooltip:AddLine("Rank " .. row.data.rank, 0.7, 0.7, 0.7)
+    GameTooltip:AddLine(row.data.text, 1, 0.82, 0, true)
+  elseif row.data.spell and row.data.spell > 0 and GameTooltip.SetSpellByID then
     GameTooltip:SetSpellByID(row.data.spell)
   else
     GameTooltip:SetText(row.data.name)

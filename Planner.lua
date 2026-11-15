@@ -15,7 +15,7 @@ local function db() return Talents4eDB end
 ---------------------------------------------------------------------------------------------------------------
 -- The plan being edited, without the game's frames (tested in tests\planner.test.ts).
 --   classId, shapes (Rules.Shapes), order ({ tree, index } steps), firstLevel, points (the character's at its
---   level), limit (the most points the plan may hold), pool (ranks still to place, or nil), entry (the saved build
+--   level), limit (the most points the plan may hold: every point to level 60, as on the site), pool (ranks still to place, or nil), entry (the saved build
 --   being edited, or nil), base (the build the code is made from), dirty, message ({ kind, text } after a refused
 --   click).
 
@@ -53,8 +53,8 @@ function Planner.New(opts)
     plan.pool = copyRanks(build.talents)
     if poolTotal(plan.pool) == 0 then plan.pool = nil end
   end
-  -- A saved build may plan past the character's level; all of it can still be edited.
-  plan.limit = math.max(plan.points, #plan.order, poolTotal(plan.pool))
+  -- A plan runs to level 60 whatever the character's level, as on the site (owner, 2026-11-15).
+  plan.limit = math.max(Order.PointsAtLevel(Core.MAX_LEVEL, plan.firstLevel), #plan.order, poolTotal(plan.pool))
   return plan
 end
 
@@ -97,7 +97,9 @@ function Planner.Click(plan, tree, index, remove)
   end
   local order, block = Rules.AddStep(plan.shapes, plan.order, plan.limit, tree, index)
   if not order then
-    plan.message = { kind = "Warning", text = Rules.BlockText(plan.classId, tree, index, block) }
+    local text = block == "no-points" and ("All " .. plan.limit .. " points are placed.")
+      or Rules.BlockText(plan.classId, tree, index, block)
+    plan.message = { kind = "Warning", text = text }
     return false
   end
   plan.order = order
@@ -169,10 +171,11 @@ function Planner.Build(plan)
   }
 end
 
--- The header's points line: "14 of 14 points · level 23 · first point at level 10".
-function Planner.Summary(plan, level)
-  local line = #plan.order .. " of " .. plan.limit .. " points · level " .. level .. " · first point at level "
-    .. plan.firstLevel
+-- The header's points line: "14 of 51 points · to level 23 · first point at level 10".
+function Planner.Summary(plan)
+  local line = #plan.order .. " of " .. plan.limit .. " points · "
+  if #plan.order > 0 then line = line .. "to level " .. Planner.StepLevel(plan, #plan.order) .. " · " end
+  line = line .. "first point at level " .. plan.firstLevel
   if plan.firstLevel < Order.FIRST_TALENT_LEVEL then line = line .. " (Talented)" end
   return line
 end
@@ -207,9 +210,23 @@ function Planner.Rows(plan)
     seen[key] = (seen[key] or 0) + 1
     local talent = Order.Talent(plan.classId, s.tree, s.index)
     rows[step] = { step = step, level = Planner.StepLevel(plan, step), tree = s.tree, index = s.index,
-      name = talent.name, icon = talent.icon, spell = talent.spell, rank = seen[key] .. " of " .. talent.ranks }
+      name = talent.name, icon = talent.icon, spell = talent.spell, rank = seen[key] .. " of " .. talent.ranks,
+      text = talent.desc and talent.desc[seen[key]] }
   end
   return rows
+end
+
+-- What the tooltip says about a talent's ranks, as the game's talent window does: the text of the planned rank
+-- (rank 1's before any point), and the next rank's text while there is one after a planned point.
+-- Returns { rank, ranks, kind = "Passive" or nil, cast, text, nextText }.
+function Planner.RankInfo(plan, tree, index)
+  local talent = Order.Talent(plan.classId, tree, index)
+  local rank = Rules.RankAt(Planner.Ranks(plan), tree, index)
+  local desc = talent.desc or {}
+  local info = { rank = rank, ranks = talent.ranks, kind = talent.passive and "Passive" or nil, cast = talent.cast,
+    text = desc[math.max(1, rank)] }
+  if rank > 0 and rank < talent.ranks then info.nextText = desc[rank + 1] end
+  return info
 end
 
 -- The levels each planned rank of a talent is taken at.
@@ -289,14 +306,28 @@ end
 talentTooltip = function(b)
   local info = talentInfo(b.tree, b.index)
   GameTooltip:SetOwner(b, "ANCHOR_RIGHT")
-  if info.spell and info.spell > 0 and GameTooltip.SetSpellByID then
-    GameTooltip:SetSpellByID(info.spell)
-  else
-    GameTooltip:SetText(info.name)
-  end
   local ranks = Planner.Ranks(plan)
   local rank = Rules.RankAt(ranks, b.tree, b.index)
-  GameTooltip:AddLine("Rank " .. rank .. "/" .. info.ranks, 1, 1, 1)
+  local r = Planner.RankInfo(plan, b.tree, b.index)
+  if r.text then
+    -- The rank's own words from the site's data, as the game's talent window shows them.
+    GameTooltip:SetText(info.name, 1, 1, 1)
+    GameTooltip:AddLine((r.kind and (r.kind .. " · ") or "") .. "Rank " .. rank .. "/" .. info.ranks, 0.7, 0.7, 0.7)
+    if r.cast then GameTooltip:AddLine(r.cast, 1, 1, 1, true) end
+    GameTooltip:AddLine(r.text, 1, 0.82, 0, true)
+    if r.nextText then
+      GameTooltip:AddLine(" ")
+      GameTooltip:AddLine("Next rank:", 1, 1, 1)
+      GameTooltip:AddLine(r.nextText, 1, 0.82, 0, true)
+    end
+  else
+    if info.spell and info.spell > 0 and GameTooltip.SetSpellByID then
+      GameTooltip:SetSpellByID(info.spell)
+    else
+      GameTooltip:SetText(info.name)
+    end
+    GameTooltip:AddLine("Rank " .. rank .. "/" .. info.ranks, 1, 1, 1)
+  end
   local levels = Planner.Levels(plan, b.tree, b.index)
   if #levels > 0 then GameTooltip:AddLine("Taken at level " .. table.concat(levels, ", "), 1, 0.82, 0) end
   local block = rank < info.ranks and Rules.AddBlock(plan.shapes, ranks, nil, b.tree, b.index)
@@ -416,7 +447,10 @@ local function makeRow(i)
   r.rank:SetJustifyH("RIGHT")
   r:SetScript("OnEnter", function(self)
     GameTooltip:SetOwner(self, "ANCHOR_RIGHT")
-    if self.data.spell and self.data.spell > 0 and GameTooltip.SetSpellByID then
+    if self.data.text then
+      GameTooltip:SetText(self.data.name, 1, 1, 1)
+      GameTooltip:AddLine(self.data.text, 1, 0.82, 0, true)
+    elseif self.data.spell and self.data.spell > 0 and GameTooltip.SetSpellByID then
       GameTooltip:SetSpellByID(self.data.spell)
     else
       GameTooltip:SetText(self.data.name)
@@ -459,7 +493,7 @@ end
 refresh = function()
   if not frame or not plan then return end
   frame.heading:SetText(plan.entry and ("Editing: " .. plan.entry.name) or "New build")
-  frame.summary:SetText(Planner.Summary(plan, playerLevel))
+  frame.summary:SetText(Planner.Summary(plan))
   drawTrees()
   drawList()
   local hint = Planner.Hint(plan)

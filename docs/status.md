@@ -20,7 +20,8 @@ what is happening now. Keep it short.
 - Owner: maybe a new CurseForge logo (CurseForge settings only); the in-game icon is `Media\Icon.tga`.
 - Forever's launch: the talent window checks (badges, glow, order list, reminder, export's talents), screenshots 1
   to 3 in `docs\curseforge.md`, and the Beta file switched to Release.
-- Owner: confirm the two calls in `design.md`, "Decisions" (planner limits, our own minimap button).
+- Owner: try 1.0.7's planner in game (a New plan on a low-level character runs to 60), then release it.
+- Owner: confirm the call in `design.md`, "Decisions" (our own minimap button).
 - Done in game (Retail and Anniversary, 2026-11-02): main window, import, export box, planner, Settings, minimap
   button. GitHub repo J-Groove/Talents-4Everyone pushed.
 
@@ -30,6 +31,14 @@ what is happening now. Keep it short.
 - The order list's talent window checks on Forever itself once it is out (`/fstack` names, taint, the Apply step).
 
 ## Done lately (newest first)
+- 2026-11-15 · 1.0.7 prepared (uncommitted): the planner (New plan, Edit) plans all 51 points to level 60 whatever
+  the character's level, as on the site (owner); before, it stopped at the character's points. `Planner.lua`
+  (limit, header "to level N", "All 51 points are placed."), `tests\planner.test.ts` (40 pass), TOC 1.0.7,
+  CHANGELOG, README, `design.md` (the planner-limits decision settled). Not tried in game.
+- 2026-11-15 · Also in 1.0.7: rank tooltips. `tools\make-data.mjs` now writes each rank's text (`desc`), `passive`
+  and `cast` from the site's data into `Data.lua` (68 KB to 228 KB); the planner's talent tooltip shows the planned
+  rank and "Next rank:" like the game's, and the order lists (planner and talent window) show each step's rank text.
+  `Planner.RankInfo`; 41 tests pass. Not tried in game.
 - 2026-11-08 · 1.0.4 prepared: `Data.lua` rebuilt for game build 1.60.1.70862 (no talent changed), TOC Version 1.0.4 (the v1.0.3 tag kept TOC 1.0.2), CHANGELOG entry. 39 tests pass.
 - 2026-11-06 · `Media\Icon.tga` restored (the 4E crest, uncommitted): commit 00f8f18 (tag v1.0.3) had deleted it while
   the TOC's `IconTexture` and `Minimap.lua` still use it, so v1.0.3 shows a blank icon. Remade by
