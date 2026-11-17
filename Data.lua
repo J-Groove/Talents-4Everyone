@@ -5,9 +5,9 @@
 local _, ns = ...
 
 ns.Data = {
-  build = "1.60.1.70938",
+  build = "1.60.1.70959",
   classes = {
-    [1] = { name = "Warrior", icon = "classicon_warrior", -- talents from 1.60.1.70938
+    [1] = { name = "Warrior", icon = "classicon_warrior", -- talents from 1.60.1.70959
       { id = 161, name = "Arms", icon = "ability_rogue_eviscerate", nodes = { 105958, 105957, 105956, 105955, 105954, 105952, 105951, 105950, 105949, 105948, 105947, 110524, 105945, 105944, 110858, 105942, 105941 },
         talents = {
           { name = "Improved Heroic Strike", icon = "ability_rogue_ambush", ranks = 3, spell = 12282, row = 1, col = 1, passive = true, desc = { "Reduces the cost of your Heroic Strike ability by 1 Rage.", "Reduces the cost of your Heroic Strike ability by 2 Rage.", "Reduces the cost of your Heroic Strike ability by 3 Rage." } },
@@ -74,7 +74,7 @@ ns.Data = {
         },
       },
     },
-    [2] = { name = "Paladin", icon = "classicon_paladin", -- talents from 1.60.1.70938
+    [2] = { name = "Paladin", icon = "classicon_paladin", -- talents from 1.60.1.70959
       { id = 382, name = "Holy", icon = "spell_holy_holybolt", nodes = { 105335, 113630, 105333, 110871, 105334, 105327, 105325, 105329, 105704, 105324, 110873, 105330, 110872, 105323, 113631, 105321, 105320 },
         talents = {
           { name = "Spiritual Focus", icon = "spell_arcane_blink", ranks = 5, spell = 20205, row = 1, col = 2, passive = true, desc = { "Gives your Flash of Light, Holy Light, and Light's Vigil spells a 14% chance to not lose casting time when you take damage.", "Gives your Flash of Light, Holy Light, and Light's Vigil spells a 28% chance to not lose casting time when you take damage.", "Gives your Flash of Light, Holy Light, and Light's Vigil spells a 42% chance to not lose casting time when you take damage.", "Gives your Flash of Light, Holy Light, and Light's Vigil spells a 56% chance to not lose casting time when you take damage.", "Gives your Flash of Light, Holy Light, and Light's Vigil spells a 70% chance to not lose casting time when you take damage." } },
@@ -139,7 +139,7 @@ ns.Data = {
         },
       },
     },
-    [3] = { name = "Hunter", icon = "classicon_hunter", -- talents from 1.60.1.70938
+    [3] = { name = "Hunter", icon = "classicon_hunter", -- talents from 1.60.1.70959
       { id = 361, name = "Beast Mastery", icon = "ability_hunter_beasttaming", nodes = { 104960, 104976, 104975, 104974, 104972, 104973, 104970, 104969, 104968, 104967, 104966, 104965, 104964, 104963, 104962, 104961 },
         talents = {
           { name = "Deadly Aspects", icon = "spell_nature_ravenform", ranks = 5, spell = 19552, row = 1, col = 2, passive = true, desc = { "While Aspect of the Hawk is active, Auto Shot has a 2% chance of increasing ranged attack speed by 30% for 12 sec. While Aspect of the Beast is active, all melee auto attacks have a 2% chance of increasing melee attack speed by 30% for 12 sec.", "While Aspect of the Hawk is active, Auto Shot has a 4% chance of increasing ranged attack speed by 30% for 12 sec. While Aspect of the Beast is active, all melee auto attacks have a 4% chance of increasing melee attack speed by 30% for 12 sec.", "While Aspect of the Hawk is active, Auto Shot has a 6% chance of increasing ranged attack speed by 30% for 12 sec. While Aspect of the Beast is active, all melee auto attacks have a 6% chance of increasing melee attack speed by 30% for 12 sec.", "While Aspect of the Hawk is active, Auto Shot has a 8% chance of increasing ranged attack speed by 30% for 12 sec. While Aspect of the Beast is active, all melee auto attacks have a 8% chance of increasing melee attack speed by 30% for 12 sec.", "While Aspect of the Hawk is active, Auto Shot has a 10% chance of increasing ranged attack speed by 30% for 12 sec. While Aspect of the Beast is active, all melee auto attacks have a 10% chance of increasing melee attack speed by 30% for 12 sec." } },
@@ -203,7 +203,7 @@ ns.Data = {
         },
       },
     },
-    [4] = { name = "Rogue", icon = "classicon_rogue", -- talents from 1.60.1.70938
+    [4] = { name = "Rogue", icon = "classicon_rogue", -- talents from 1.60.1.70959
       { id = 182, name = "Assassination", icon = "ability_rogue_eviscerate", nodes = { 105742, 105723, 105722, 105721, 105717, 105739, 105720, 105718, 105716, 105714, 105715, 105713, 113633, 105712, 105711, 105710, 105709 },
         talents = {
           { name = "Improved Gouge", icon = "ability_gouge", ranks = 3, spell = 13741, row = 1, col = 1, passive = true, desc = { "Increases the duration of your Gouge ability by 0.5 sec.", "Increases the duration of your Gouge ability by 1 sec.", "Increases the duration of your Gouge ability by 1.5 sec." } },
@@ -271,7 +271,7 @@ ns.Data = {
         },
       },
     },
-    [5] = { name = "Priest", icon = "classicon_priest", -- talents from 1.60.1.70938
+    [5] = { name = "Priest", icon = "classicon_priest", -- talents from 1.60.1.70959
       { id = 201, name = "Discipline", icon = "spell_holy_wordfortitude", nodes = { 110853, 105850, 105849, 105848, 110852, 105837, 105845, 105842, 105844, 105846, 105843, 105841, 105838, 105839, 105834, 105835, 105840, 105836 },
         talents = {
           { name = "Power in Light", icon = "spell_holy_searinglight", ranks = 5, spell = 1309969, row = 1, col = 1, passive = true, desc = { "Your Smite and Penance spells deal 2% increased damage to targets afflicted with your Holy Fire or Shadow Word: Pain.", "Your Smite and Penance spells deal 4% increased damage to targets afflicted with your Holy Fire or Shadow Word: Pain.", "Your Smite and Penance spells deal 6% increased damage to targets afflicted with your Holy Fire or Shadow Word: Pain.", "Your Smite and Penance spells deal 8% increased damage to targets afflicted with your Holy Fire or Shadow Word: Pain.", "Your Smite and Penance spells deal 10% increased damage to targets afflicted with your Holy Fire or Shadow Word: Pain." } },
@@ -337,7 +337,7 @@ ns.Data = {
         },
       },
     },
-    [7] = { name = "Shaman", icon = "classicon_shaman", -- talents from 1.60.1.70938
+    [7] = { name = "Shaman", icon = "classicon_shaman", -- talents from 1.60.1.70959
       { id = 261, name = "Elemental", icon = "spell_nature_lightning", nodes = { 104773, 104772, 104769, 104767, 104771, 104770, 104768, 104765, 104764, 104763, 104762, 104761, 104760, 104759, 104766, 104758 },
         talents = {
           { name = "Convection", icon = "spell_nature_wispsplode", ranks = 5, spell = 16039, row = 1, col = 2, passive = true, desc = { "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 2%.", "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 4%.", "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 6%.", "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 8%.", "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 10%." } },
@@ -364,19 +364,19 @@ ns.Data = {
           { name = "Thundering Strikes", icon = "ability_thunderbolt", ranks = 5, spell = 16255, row = 1, col = 2, passive = true, desc = { "Improves your chance to get a critical strike with all spells and attacks by 1%.", "Improves your chance to get a critical strike with all spells and attacks by 2%.", "Improves your chance to get a critical strike with all spells and attacks by 3%.", "Improves your chance to get a critical strike with all spells and attacks by 4%.", "Improves your chance to get a critical strike with all spells and attacks by 5%." } },
           { name = "Ancestral Knowledge", icon = "spell_shadow_grimward", ranks = 5, spell = 17485, row = 1, col = 3, passive = true, desc = { "Increases your Intellect by 2%.", "Increases your Intellect by 4%.", "Increases your Intellect by 6%.", "Increases your Intellect by 8%.", "Increases your Intellect by 10%." } },
           { name = "Guardian Totems", icon = "spell_nature_stoneskintotem", ranks = 2, spell = 16258, row = 2, col = 1, passive = true, desc = { "Increases the amount of damage reduced by your Stoneskin Totem and Windwall Totem by 10% and reduces the cooldown of your Grounding Totem by 1 sec.", "Increases the amount of damage reduced by your Stoneskin Totem and Windwall Totem by 20% and reduces the cooldown of your Grounding Totem by 2 sec." } },
-          { name = "Mental Dexterity", icon = "spell_nature_mentalquickness", ranks = 3, spell = 415140, row = 2, col = 2, passive = true, desc = { "Increases your Attack Power by an amount equal to 50% of your Intellect.", "Increases your Attack Power by an amount equal to 100% of your Intellect.", "Increases your Attack Power by an amount equal to 150% of your Intellect." } },
+          { name = "Mental Dexterity", icon = "spell_nature_mentalquickness", ranks = 3, spell = 415140, row = 2, col = 2, passive = true, desc = { "Increases your Attack Power by an amount equal to 33% of your Intellect.", "Increases your Attack Power by an amount equal to 66% of your Intellect.", "Increases your Attack Power by an amount equal to 100% of your Intellect." } },
           { name = "Improved Lightning Shield", icon = "spell_nature_lightningshield", ranks = 3, spell = 16261, row = 2, col = 3, passive = true, desc = { "Increases the damage done by your Lightning Shield orbs by 5%.", "Increases the damage done by your Lightning Shield orbs by 10%.", "Increases the damage done by your Lightning Shield orbs by 15%." } },
           { name = "Elemental Weapons", icon = "spell_fire_flametounge", ranks = 3, spell = 16266, row = 3, col = 1, passive = true, desc = { "Increases the melee attack power bonus of your Rockbiter Weapon by 7%, your Windfury Weapon effect by 13% and increases the damage caused by your Flametongue Weapon and Frostbrand Weapon by 5%.", "Increases the melee attack power bonus of your Rockbiter Weapon by 13%, your Windfury Weapon effect by 27% and increases the damage caused by your Flametongue Weapon and Frostbrand Weapon by 10%.", "Increases the melee attack power bonus of your Rockbiter Weapon by 20%, your Windfury Weapon effect by 40% and increases the damage caused by your Flametongue Weapon and Frostbrand Weapon by 15%." } },
           { name = "Shamanistic Focus", icon = "spell_nature_elementalabsorption", ranks = 1, spell = 1223030, row = 3, col = 3, passive = true, desc = { "Reduces the mana cost of your Shock and Lightning Shield spells by 45%." } },
           { name = "Anticipation", icon = "spell_nature_mirrorimage", ranks = 3, spell = 16254, row = 3, col = 4, passive = true, desc = { "Increases your chance to dodge by an additional 2%.", "Increases your chance to dodge by an additional 4%.", "Increases your chance to dodge by an additional 6%." } },
           { name = "Toughness", icon = "spell_holy_devotion", ranks = 5, spell = 16252, row = 4, col = 1, passive = true, desc = { "Increases your Stamina by 2%.", "Increases your Stamina by 4%.", "Increases your Stamina by 6%.", "Increases your Stamina by 8%.", "Increases your Stamina by 10%." } },
           { name = "Flurry", icon = "ability_ghoulfrenzy", ranks = 5, spell = 16256, row = 4, col = 2, req = { index = 5, rank = 3 }, passive = true, desc = { "Increases your attack speed by 6% for your next 3 swings after dealing a melee critical strike.", "Increases your attack speed by 12% for your next 3 swings after dealing a melee critical strike.", "Increases your attack speed by 18% for your next 3 swings after dealing a melee critical strike.", "Increases your attack speed by 24% for your next 3 swings after dealing a melee critical strike.", "Increases your attack speed by 30% for your next 3 swings after dealing a melee critical strike." } },
-          { name = "Stormstrike", icon = "ability_shaman_stormstrike", ranks = 1, spell = 17364, row = 4, col = 3, cast = "8% of base mana · Melee range · Instant · 6 sec cooldown", desc = { "Instantly strike for 150% weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec." } },
+          { name = "Stormstrike", icon = "ability_shaman_stormstrike", ranks = 1, spell = 17364, row = 4, col = 3, cast = "8% of base mana · Melee range · Instant · 8 sec cooldown", desc = { "Instantly strike for 100% weapon damage and increase the damage you deal to the target with your next Lightning Bolt, Chain Lightning, or Earth Shock spell by 20% for 12 sec." } },
           { name = "Improved Ghost Wolf", icon = "spell_nature_spiritwolf", ranks = 2, spell = 16262, row = 4, col = 4, passive = true, desc = { "Reduces the cast time of your Ghost Wolf spell by 1.0 sec, and Ghost Wolf may be used indoors.", "Reduces the cast time of your Ghost Wolf spell by 3.0 sec, and Ghost Wolf may be used indoors." } },
           { name = "Spirit Weapons", icon = "ability_parry", ranks = 1, spell = 16268, row = 5, col = 1, passive = true, desc = { "Gives a chance to parry enemy melee attacks, reduces all threat generated by your attacks by 30% while Rockbiter Weapon is not active, and increases all threat generated by 30% while Rockbiter Weapon is active." } },
           { name = "Mental Quickness", icon = "spell_nature_sleep", ranks = 2, spell = 30812, row = 5, col = 2, passive = true, desc = { "Increases your spell damage and healing by up to 15% of your Intellect.", "Increases your spell damage and healing by up to 30% of your Intellect." } },
           { name = "Improved Stormstrike", icon = "spell_shaman_improvedstormstrike", ranks = 2, spell = 1223031, row = 5, col = 3, req = { index = 12, rank = 1 }, passive = true, desc = { "When you Stormstrike, you have a 50% chance to gain 50% mana regeneration while casting spells for 15 sec, and Stormstrike's cooldown has a 50% chance to reset each time you Dodge or Parry.", "When you Stormstrike, you have a 100% chance to gain 50% mana regeneration while casting spells for 15 sec, and Stormstrike's cooldown has a 100% chance to reset each time you Dodge or Parry." } },
-          { name = "Maelstrom Weapon", icon = "spell_shaman_maelstromweapon", ranks = 5, spell = 408498, row = 6, col = 3, passive = true, desc = { "When you deal damage with a melee attack, you have a chance to reduce the cast time and Mana cost of your next Lightning Bolt spell by 4%. Stacks up to 5 times. Lasts 30 sec.", "When you deal damage with a melee attack, you have a chance to reduce the cast time and Mana cost of your next Lightning Bolt spell by 8%. Stacks up to 5 times. Lasts 30 sec.", "When you deal damage with a melee attack, you have a chance to reduce the cast time and Mana cost of your next Lightning Bolt spell by 12%. Stacks up to 5 times. Lasts 30 sec.", "When you deal damage with a melee attack, you have a chance to reduce the cast time and Mana cost of your next Lightning Bolt spell by 16%. Stacks up to 5 times. Lasts 30 sec.", "When you deal damage with a melee attack, you have a chance to reduce the cast time and Mana cost of your next Lightning Bolt spell by 20%. Stacks up to 5 times. Lasts 30 sec." } },
+          { name = "Maelstrom Weapon", icon = "spell_shaman_maelstromweapon", ranks = 5, spell = 408498, row = 6, col = 3, passive = true, desc = { "When you deal damage with a melee attack, you have a ${($mws*$s2/60)*100}% chance (based on weapon speed) to reduce the cast time and Mana cost of your next Lightning Bolt spell by 20%. Stacks up to 5 times. Lasts 30 sec.", "When you deal damage with a melee attack, you have a ${($mws*$s2/60)*100}% chance (based on weapon speed) to reduce the cast time and Mana cost of your next Lightning Bolt spell by 20%. Stacks up to 5 times. Lasts 30 sec.", "When you deal damage with a melee attack, you have a ${($mws*$s2/60)*100}% chance (based on weapon speed) to reduce the cast time and Mana cost of your next Lightning Bolt spell by 20%. Stacks up to 5 times. Lasts 30 sec.", "When you deal damage with a melee attack, you have a ${($mws*$s2/60)*100}% chance (based on weapon speed) to reduce the cast time and Mana cost of your next Lightning Bolt spell by 20%. Stacks up to 5 times. Lasts 30 sec.", "When you deal damage with a melee attack, you have a ${($mws*$s2/60)*100}% chance (based on weapon speed) to reduce the cast time and Mana cost of your next Lightning Bolt spell by 20%. Stacks up to 5 times. Lasts 30 sec." } },
           { name = "Rage of the Farseer", icon = "spell_nature_bloodlust", ranks = 1, spell = 425336, row = 7, col = 2, req = { index = 15, rank = 2 }, cast = "Instant · 3 min cooldown", desc = { "Increases your attack speed by 30% for 25 sec." } },
         },
       },
@@ -401,7 +401,7 @@ ns.Data = {
         },
       },
     },
-    [8] = { name = "Mage", icon = "classicon_mage", -- talents from 1.60.1.70938
+    [8] = { name = "Mage", icon = "classicon_mage", -- talents from 1.60.1.70959
       { id = 81, name = "Arcane", icon = "spell_holy_magicalsentry", nodes = { 105815, 105813, 105802, 105812, 105811, 105810, 105809, 105808, 105807, 105806, 105805, 105804, 105803, 113627, 105801, 105800, 105799, 105798 },
         talents = {
           { name = "Wand Specialization", icon = "inv_wand_01", ranks = 2, spell = 6057, row = 1, col = 1, passive = true, desc = { "Increases your damage with Wands by 13%.", "Increases your damage with Wands by 25%." } },
@@ -468,7 +468,7 @@ ns.Data = {
         },
       },
     },
-    [9] = { name = "Warlock", icon = "classicon_warlock", -- talents from 1.60.1.70938
+    [9] = { name = "Warlock", icon = "classicon_warlock", -- talents from 1.60.1.70959
       { id = 302, name = "Affliction", icon = "spell_shadow_deathcoil", nodes = { 105921, 105925, 105924, 105923, 105922, 105920, 105919, 105918, 105916, 105917, 110876, 105914, 105913, 105912, 105911, 105910, 105909 },
         talents = {
           { name = "Improved Life Tap", icon = "spell_shadow_burningspirit", ranks = 2, spell = 18182, row = 1, col = 1, passive = true, desc = { "Increases the amount of Mana awarded by your Life Tap spell by 10%.", "Increases the amount of Mana awarded by your Life Tap spell by 20%." } },
@@ -534,7 +534,7 @@ ns.Data = {
         },
       },
     },
-    [11] = { name = "Druid", icon = "classicon_druid", -- talents from 1.60.1.70938
+    [11] = { name = "Druid", icon = "classicon_druid", -- talents from 1.60.1.70959
       { id = 283, name = "Balance", icon = "spell_nature_starfall", nodes = { 104923, 104924, 104925, 104931, 104927, 104929, 104926, 104928, 104930, 104932, 104933, 110844, 104934, 104935, 104936, 104937 },
         talents = {
           { name = "Improved Wrath", icon = "spell_nature_abolishmagic", ranks = 5, spell = 16814, row = 1, col = 2, passive = true, desc = { "Reduces the cast time of your Wrath spell by 0.1 sec and its Mana cost by 10%.", "Reduces the cast time of your Wrath spell by 0.2 sec and its Mana cost by 20%.", "Reduces the cast time of your Wrath spell by 0.3 sec and its Mana cost by 30%.", "Reduces the cast time of your Wrath spell by 0.4 sec and its Mana cost by 40%.", "Reduces the cast time of your Wrath spell by 0.5 sec and its Mana cost by 50%." } },
@@ -613,7 +613,7 @@ ns.Data = {
     [8] = "Troll",
     [96] = "Windshaper Skyborne",
   },
-  legacy = { -- from 1.60.1.70938
+  legacy = { -- from 1.60.1.70959
     { id = 1188, nodes = { 110305, 110301, 110298, 113511, 113510, 110296, 110304, 110300, 110303 }, early = { [3] = 1 } }, -- Adventure
     { id = 1189, nodes = { 110319, 110313, 110316, 113513, 113512, 110315, 110309, 110318, 110314 }, early = {  } }, -- Resourcefulness
     { id = 1187, nodes = { 110289, 110290, 110286, 110284, 110291, 110292, 113508, 113506, 110293 }, early = {  } }, -- Professions
@@ -628,5 +628,6 @@ ns.Data = {
     [70862] = { [1] = "b3dd22b26e05", [2] = "6413e9b7ed4a", [3] = "36010caa2e08", [4] = "7ea5022e8624", [5] = "82d846c2608f", [7] = "61f61a7b5378", [8] = "a99bfc665acb", [9] = "f30a52c0a380", [11] = "328374710f4d", legacy = "702336267782" },
     [70888] = { [1] = "b3dd22b26e05", [2] = "6413e9b7ed4a", [3] = "36010caa2e08", [4] = "7ea5022e8624", [5] = "82d846c2608f", [7] = "61f61a7b5378", [8] = "a99bfc665acb", [9] = "f30a52c0a380", [11] = "328374710f4d", legacy = "702336267782" },
     [70938] = { [1] = "b3dd22b26e05", [2] = "6413e9b7ed4a", [3] = "36010caa2e08", [4] = "7ea5022e8624", [5] = "82d846c2608f", [7] = "61f61a7b5378", [8] = "a99bfc665acb", [9] = "f30a52c0a380", [11] = "328374710f4d", legacy = "702336267782" },
+    [70959] = { [1] = "b3dd22b26e05", [2] = "6413e9b7ed4a", [3] = "36010caa2e08", [4] = "7ea5022e8624", [5] = "82d846c2608f", [7] = "61f61a7b5378", [8] = "a99bfc665acb", [9] = "f30a52c0a380", [11] = "328374710f4d", legacy = "702336267782" },
   },
 }
