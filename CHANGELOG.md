@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.11
+- Talent data for game build 1.60.1.71139, the same as wow-4e.com. No talents changed, so your saved builds read the
+  same; without this update the export box warns that the data is from an older game build.
+
 ## 1.0.10
 - Talent data for game build 1.60.1.71091, the same as wow-4e.com. No talents changed, so your saved builds read the
   same; without this update the export box warns that the data is from an older game build.

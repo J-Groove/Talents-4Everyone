@@ -5,9 +5,9 @@
 local _, ns = ...
 
 ns.Data = {
-  build = "1.60.1.71091",
+  build = "1.60.1.71139",
   classes = {
-    [1] = { name = "Warrior", icon = "classicon_warrior", -- talents from 1.60.1.71091
+    [1] = { name = "Warrior", icon = "classicon_warrior", -- talents from 1.60.1.71139
       { id = 161, name = "Arms", icon = "ability_rogue_eviscerate", nodes = { 105958, 105957, 105956, 105955, 105954, 105952, 105951, 105950, 105949, 105948, 105947, 110524, 105945, 105944, 110858, 105942, 105941 },
         talents = {
           { name = "Improved Heroic Strike", icon = "ability_rogue_ambush", ranks = 3, spell = 12282, row = 1, col = 1, passive = true, desc = { "Reduces the cost of your Heroic Strike ability by 1 Rage.", "Reduces the cost of your Heroic Strike ability by 2 Rage.", "Reduces the cost of your Heroic Strike ability by 3 Rage." } },
@@ -74,7 +74,7 @@ ns.Data = {
         },
       },
     },
-    [2] = { name = "Paladin", icon = "classicon_paladin", -- talents from 1.60.1.71091
+    [2] = { name = "Paladin", icon = "classicon_paladin", -- talents from 1.60.1.71139
       { id = 382, name = "Holy", icon = "spell_holy_holybolt", nodes = { 105335, 113630, 105333, 110871, 105334, 105327, 105325, 105329, 105704, 105324, 110873, 105330, 110872, 105323, 113631, 105321, 105320 },
         talents = {
           { name = "Spiritual Focus", icon = "spell_arcane_blink", ranks = 5, spell = 20205, row = 1, col = 2, passive = true, desc = { "Gives your Flash of Light, Holy Light, and Light's Vigil spells a 14% chance to not lose casting time when you take damage.", "Gives your Flash of Light, Holy Light, and Light's Vigil spells a 28% chance to not lose casting time when you take damage.", "Gives your Flash of Light, Holy Light, and Light's Vigil spells a 42% chance to not lose casting time when you take damage.", "Gives your Flash of Light, Holy Light, and Light's Vigil spells a 56% chance to not lose casting time when you take damage.", "Gives your Flash of Light, Holy Light, and Light's Vigil spells a 70% chance to not lose casting time when you take damage." } },
@@ -139,7 +139,7 @@ ns.Data = {
         },
       },
     },
-    [3] = { name = "Hunter", icon = "classicon_hunter", -- talents from 1.60.1.71091
+    [3] = { name = "Hunter", icon = "classicon_hunter", -- talents from 1.60.1.71139
       { id = 361, name = "Beast Mastery", icon = "ability_hunter_beasttaming", nodes = { 104960, 104976, 104975, 104974, 104972, 104973, 104970, 104969, 104968, 104967, 104966, 104965, 104964, 104963, 104962, 104961 },
         talents = {
           { name = "Deadly Aspects", icon = "spell_nature_ravenform", ranks = 5, spell = 19552, row = 1, col = 2, passive = true, desc = { "While Aspect of the Hawk is active, Auto Shot has a 2% chance of increasing ranged attack speed by 30% for 12 sec. While Aspect of the Beast is active, all melee auto attacks have a 2% chance of increasing melee attack speed by 30% for 12 sec.", "While Aspect of the Hawk is active, Auto Shot has a 4% chance of increasing ranged attack speed by 30% for 12 sec. While Aspect of the Beast is active, all melee auto attacks have a 4% chance of increasing melee attack speed by 30% for 12 sec.", "While Aspect of the Hawk is active, Auto Shot has a 6% chance of increasing ranged attack speed by 30% for 12 sec. While Aspect of the Beast is active, all melee auto attacks have a 6% chance of increasing melee attack speed by 30% for 12 sec.", "While Aspect of the Hawk is active, Auto Shot has a 8% chance of increasing ranged attack speed by 30% for 12 sec. While Aspect of the Beast is active, all melee auto attacks have a 8% chance of increasing melee attack speed by 30% for 12 sec.", "While Aspect of the Hawk is active, Auto Shot has a 10% chance of increasing ranged attack speed by 30% for 12 sec. While Aspect of the Beast is active, all melee auto attacks have a 10% chance of increasing melee attack speed by 30% for 12 sec." } },
@@ -203,7 +203,7 @@ ns.Data = {
         },
       },
     },
-    [4] = { name = "Rogue", icon = "classicon_rogue", -- talents from 1.60.1.71091
+    [4] = { name = "Rogue", icon = "classicon_rogue", -- talents from 1.60.1.71139
       { id = 182, name = "Assassination", icon = "ability_rogue_eviscerate", nodes = { 105742, 105723, 105722, 105721, 105717, 105739, 105720, 105718, 105716, 105714, 105715, 105713, 113633, 105712, 105711, 105710, 105709 },
         talents = {
           { name = "Improved Gouge", icon = "ability_gouge", ranks = 3, spell = 13741, row = 1, col = 1, passive = true, desc = { "Increases the duration of your Gouge ability by 0.5 sec.", "Increases the duration of your Gouge ability by 1 sec.", "Increases the duration of your Gouge ability by 1.5 sec." } },
@@ -271,7 +271,7 @@ ns.Data = {
         },
       },
     },
-    [5] = { name = "Priest", icon = "classicon_priest", -- talents from 1.60.1.71091
+    [5] = { name = "Priest", icon = "classicon_priest", -- talents from 1.60.1.71139
       { id = 201, name = "Discipline", icon = "spell_holy_wordfortitude", nodes = { 110853, 105850, 105849, 105848, 110852, 105837, 105845, 105842, 105844, 105846, 105843, 105841, 105838, 105839, 105834, 105835, 105840, 105836 },
         talents = {
           { name = "Power in Light", icon = "spell_holy_searinglight", ranks = 5, spell = 1309969, row = 1, col = 1, passive = true, desc = { "Your Smite and Penance spells deal 2% increased damage to targets afflicted with your Holy Fire or Shadow Word: Pain.", "Your Smite and Penance spells deal 4% increased damage to targets afflicted with your Holy Fire or Shadow Word: Pain.", "Your Smite and Penance spells deal 6% increased damage to targets afflicted with your Holy Fire or Shadow Word: Pain.", "Your Smite and Penance spells deal 8% increased damage to targets afflicted with your Holy Fire or Shadow Word: Pain.", "Your Smite and Penance spells deal 10% increased damage to targets afflicted with your Holy Fire or Shadow Word: Pain." } },
@@ -337,7 +337,7 @@ ns.Data = {
         },
       },
     },
-    [7] = { name = "Shaman", icon = "classicon_shaman", -- talents from 1.60.1.71091
+    [7] = { name = "Shaman", icon = "classicon_shaman", -- talents from 1.60.1.71139
       { id = 261, name = "Elemental", icon = "spell_nature_lightning", nodes = { 104773, 104772, 104769, 104767, 104771, 104770, 104768, 104765, 104764, 104763, 104762, 104761, 104760, 104759, 104766, 104758 },
         talents = {
           { name = "Convection", icon = "spell_nature_wispsplode", ranks = 5, spell = 16039, row = 1, col = 2, passive = true, desc = { "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 2%.", "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 4%.", "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 6%.", "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 8%.", "Reduces the mana cost of your Shock, Lightning Bolt, and Chain Lightning spells by 10%." } },
@@ -401,7 +401,7 @@ ns.Data = {
         },
       },
     },
-    [8] = { name = "Mage", icon = "classicon_mage", -- talents from 1.60.1.71091
+    [8] = { name = "Mage", icon = "classicon_mage", -- talents from 1.60.1.71139
       { id = 81, name = "Arcane", icon = "spell_holy_magicalsentry", nodes = { 105815, 105813, 105802, 105812, 105811, 105810, 105809, 105808, 105807, 105806, 105805, 105804, 105803, 113627, 105801, 105800, 105799, 105798 },
         talents = {
           { name = "Wand Specialization", icon = "inv_wand_01", ranks = 2, spell = 6057, row = 1, col = 1, passive = true, desc = { "Increases your damage with Wands by 13%.", "Increases your damage with Wands by 25%." } },
@@ -468,7 +468,7 @@ ns.Data = {
         },
       },
     },
-    [9] = { name = "Warlock", icon = "classicon_warlock", -- talents from 1.60.1.71091
+    [9] = { name = "Warlock", icon = "classicon_warlock", -- talents from 1.60.1.71139
       { id = 302, name = "Affliction", icon = "spell_shadow_deathcoil", nodes = { 105921, 105925, 105924, 105923, 105922, 105920, 105919, 105918, 105916, 105917, 110876, 105914, 105913, 105912, 105911, 105910, 105909 },
         talents = {
           { name = "Improved Life Tap", icon = "spell_shadow_burningspirit", ranks = 2, spell = 18182, row = 1, col = 1, passive = true, desc = { "Increases the amount of Mana awarded by your Life Tap spell by 10%.", "Increases the amount of Mana awarded by your Life Tap spell by 20%." } },
@@ -534,7 +534,7 @@ ns.Data = {
         },
       },
     },
-    [11] = { name = "Druid", icon = "classicon_druid", -- talents from 1.60.1.71091
+    [11] = { name = "Druid", icon = "classicon_druid", -- talents from 1.60.1.71139
       { id = 283, name = "Balance", icon = "spell_nature_starfall", nodes = { 104923, 104924, 104925, 104931, 104927, 104929, 104926, 104928, 104930, 104932, 104933, 110844, 104934, 104935, 104936, 104937 },
         talents = {
           { name = "Improved Wrath", icon = "spell_nature_abolishmagic", ranks = 5, spell = 16814, row = 1, col = 2, passive = true, desc = { "Reduces the cast time of your Wrath spell by 0.1 sec and its Mana cost by 10%.", "Reduces the cast time of your Wrath spell by 0.2 sec and its Mana cost by 20%.", "Reduces the cast time of your Wrath spell by 0.3 sec and its Mana cost by 30%.", "Reduces the cast time of your Wrath spell by 0.4 sec and its Mana cost by 40%.", "Reduces the cast time of your Wrath spell by 0.5 sec and its Mana cost by 50%." } },
@@ -613,7 +613,7 @@ ns.Data = {
     [8] = "Troll",
     [96] = "Windshaper Skyborne",
   },
-  legacy = { -- from 1.60.1.71091
+  legacy = { -- from 1.60.1.71139
     { id = 1188, nodes = { 110305, 110301, 110298, 113511, 113510, 110296, 110304, 110300, 110303 }, early = { [3] = 1 } }, -- Adventure
     { id = 1189, nodes = { 110319, 110313, 110316, 113513, 113512, 110315, 110309, 110318, 110314 }, early = {  } }, -- Resourcefulness
     { id = 1187, nodes = { 110289, 110290, 110286, 110284, 110291, 110292, 113508, 113506, 110293 }, early = {  } }, -- Professions
@@ -631,5 +631,6 @@ ns.Data = {
     [70959] = { [1] = "b3dd22b26e05", [2] = "6413e9b7ed4a", [3] = "36010caa2e08", [4] = "7ea5022e8624", [5] = "82d846c2608f", [7] = "61f61a7b5378", [8] = "a99bfc665acb", [9] = "f30a52c0a380", [11] = "328374710f4d", legacy = "702336267782" },
     [71037] = { [1] = "b3dd22b26e05", [2] = "6413e9b7ed4a", [3] = "36010caa2e08", [4] = "7ea5022e8624", [5] = "82d846c2608f", [7] = "61f61a7b5378", [8] = "a99bfc665acb", [9] = "f30a52c0a380", [11] = "328374710f4d", legacy = "702336267782" },
     [71091] = { [1] = "b3dd22b26e05", [2] = "6413e9b7ed4a", [3] = "36010caa2e08", [4] = "7ea5022e8624", [5] = "82d846c2608f", [7] = "61f61a7b5378", [8] = "a99bfc665acb", [9] = "f30a52c0a380", [11] = "328374710f4d", legacy = "702336267782" },
+    [71139] = { [1] = "b3dd22b26e05", [2] = "6413e9b7ed4a", [3] = "36010caa2e08", [4] = "7ea5022e8624", [5] = "82d846c2608f", [7] = "61f61a7b5378", [8] = "a99bfc665acb", [9] = "f30a52c0a380", [11] = "328374710f4d", legacy = "702336267782" },
   },
 }
